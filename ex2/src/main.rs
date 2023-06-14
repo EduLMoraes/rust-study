@@ -1,5 +1,4 @@
 use std::io;
-//use std::slice::range;
 fn fatorial(num:i32) -> i32{
     let mut result:i32 = 2;
 
