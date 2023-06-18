@@ -1,22 +1,45 @@
-use std::io;
-fn fatorial(num:i32) -> i32{
-    let mut result:i32 = 2;
+/*
+Exercício 2: Enum para Status de Pedido
+Crie um enum chamado StatusPedido com os 
+seguintes valores possíveis: "AguardandoPagamento", 
+"EmProcessamento", "Enviado" e "Entregue". Em seguida, 
+escreva uma função atualizar_status que receba o status
+atual de um pedido como parâmetro e retorne o próximo
+status de acordo com a seguinte lógica:
 
-    for i in 2..num{
-        result = result*(i+1);
-    }
-
-    return result;
-}
+    Se o status atual for "AguardandoPagamento", retorne "EmProcessamento".
+    Se o status atual for "EmProcessamento", retorne "Enviado".
+    Se o status atual for "Enviado", retorne "Entregue".
+    Se o status atual for "Entregue", retorne "Entregue" (não há próximo status).
+ */
+#[derive(Debug)]
+#[derive(PartialEq)]
+enum StatusPedido{AguardandoPagamento = 0, EmProcessamento = 1, Enviado = 2, Entregue = 3}
 
 fn main() {
-    let mut num = String::new();
-    println!("Insira um número para saber o fatorial dele");
-    io::stdin().read_line(&mut num);
+    let mut status = StatusPedido::AguardandoPagamento;
+    println!("Status atual: {:?}", status);
+    status = atualizar_status(status);
+    println!("Status atual: {:?}", status);
+    status = atualizar_status(status);
+    println!("Status atual: {:?}", status);
+    status = atualizar_status(status);
+    println!("Status atual: {:?}", status);
+    status = atualizar_status(status);
+    println!("Status atual: {:?}", status);
+}
 
-    let num:i32 = num.trim().parse().unwrap();
-
-    let result = fatorial(num);
-
-    println!("O fatorial de {}! é = {:?}", num, result);
+fn atualizar_status(status: StatusPedido)-> StatusPedido{
+    if status == StatusPedido::AguardandoPagamento{
+        return StatusPedido::EmProcessamento;
+    }
+    else if status == StatusPedido::EmProcessamento{
+        return StatusPedido::Enviado;
+    }
+    else if status == StatusPedido::Enviado{
+        return StatusPedido::Entregue;
+    }
+    else{
+        return StatusPedido::Entregue;
+    }
 }
