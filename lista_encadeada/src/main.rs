@@ -1,4 +1,3 @@
-
 // Criando nó que recebe valor T
 struct Node<T>{
     value: T,
