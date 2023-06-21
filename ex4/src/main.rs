@@ -90,11 +90,12 @@ fn main(){
     }
 
     
+    println!("Lista normal\n {:?}\n", list);
+    println!("Lista pop\n {:?}\n", list.pop());
     println!("Existe nó 20? {}", list.contains(20));
     println!("Existe nó 40? {}", list.contains(40));
     println!("Nó na posição 5 é {:?}", list.get(5));
     println!("O Tamanho da lista é {:#?}", list.len());
-    println!("Lista normal\n {:?}\n", list);
     println!("Lista invertida\n {:?}", list.reverse());
     
 
