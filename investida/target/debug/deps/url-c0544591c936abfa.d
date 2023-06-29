@@ -1,0 +1,13 @@
+/home/eduardo/Documentos/TADS/Testes/rust/investida/target/debug/deps/url-c0544591c936abfa.rmeta: /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/lib.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/host.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/origin.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/parser.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/path_segments.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/slicing.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/quirks.rs
+
+/home/eduardo/Documentos/TADS/Testes/rust/investida/target/debug/deps/liburl-c0544591c936abfa.rlib: /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/lib.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/host.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/origin.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/parser.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/path_segments.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/slicing.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/quirks.rs
+
+/home/eduardo/Documentos/TADS/Testes/rust/investida/target/debug/deps/url-c0544591c936abfa.d: /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/lib.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/host.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/origin.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/parser.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/path_segments.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/slicing.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/quirks.rs
+
+/home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/lib.rs:
+/home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/host.rs:
+/home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/origin.rs:
+/home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/parser.rs:
+/home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/path_segments.rs:
+/home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/slicing.rs:
+/home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/quirks.rs:

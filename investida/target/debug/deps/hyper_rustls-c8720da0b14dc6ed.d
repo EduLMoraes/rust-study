@@ -1,0 +1,11 @@
+/home/eduardo/Documentos/TADS/Testes/rust/investida/target/debug/deps/hyper_rustls-c8720da0b14dc6ed.rmeta: /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-rustls-0.24.0/src/lib.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-rustls-0.24.0/src/config.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-rustls-0.24.0/src/connector.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-rustls-0.24.0/src/connector/builder.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-rustls-0.24.0/src/stream.rs
+
+/home/eduardo/Documentos/TADS/Testes/rust/investida/target/debug/deps/libhyper_rustls-c8720da0b14dc6ed.rlib: /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-rustls-0.24.0/src/lib.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-rustls-0.24.0/src/config.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-rustls-0.24.0/src/connector.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-rustls-0.24.0/src/connector/builder.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-rustls-0.24.0/src/stream.rs
+
+/home/eduardo/Documentos/TADS/Testes/rust/investida/target/debug/deps/hyper_rustls-c8720da0b14dc6ed.d: /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-rustls-0.24.0/src/lib.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-rustls-0.24.0/src/config.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-rustls-0.24.0/src/connector.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-rustls-0.24.0/src/connector/builder.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-rustls-0.24.0/src/stream.rs
+
+/home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-rustls-0.24.0/src/lib.rs:
+/home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-rustls-0.24.0/src/config.rs:
+/home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-rustls-0.24.0/src/connector.rs:
+/home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-rustls-0.24.0/src/connector/builder.rs:
+/home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-rustls-0.24.0/src/stream.rs:

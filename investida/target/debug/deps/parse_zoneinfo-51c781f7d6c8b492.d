@@ -1,0 +1,11 @@
+/home/eduardo/Documentos/TADS/Testes/rust/investida/target/debug/deps/parse_zoneinfo-51c781f7d6c8b492.rmeta: /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/parse-zoneinfo-0.1.1/src/lib.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/parse-zoneinfo-0.1.1/src/line.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/parse-zoneinfo-0.1.1/src/table.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/parse-zoneinfo-0.1.1/src/transitions.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/parse-zoneinfo-0.1.1/src/structure.rs
+
+/home/eduardo/Documentos/TADS/Testes/rust/investida/target/debug/deps/libparse_zoneinfo-51c781f7d6c8b492.rlib: /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/parse-zoneinfo-0.1.1/src/lib.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/parse-zoneinfo-0.1.1/src/line.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/parse-zoneinfo-0.1.1/src/table.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/parse-zoneinfo-0.1.1/src/transitions.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/parse-zoneinfo-0.1.1/src/structure.rs
+
+/home/eduardo/Documentos/TADS/Testes/rust/investida/target/debug/deps/parse_zoneinfo-51c781f7d6c8b492.d: /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/parse-zoneinfo-0.1.1/src/lib.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/parse-zoneinfo-0.1.1/src/line.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/parse-zoneinfo-0.1.1/src/table.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/parse-zoneinfo-0.1.1/src/transitions.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/parse-zoneinfo-0.1.1/src/structure.rs
+
+/home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/parse-zoneinfo-0.1.1/src/lib.rs:
+/home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/parse-zoneinfo-0.1.1/src/line.rs:
+/home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/parse-zoneinfo-0.1.1/src/table.rs:
+/home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/parse-zoneinfo-0.1.1/src/transitions.rs:
+/home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/parse-zoneinfo-0.1.1/src/structure.rs:

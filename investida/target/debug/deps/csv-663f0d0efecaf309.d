@@ -1,0 +1,15 @@
+/home/eduardo/Documentos/TADS/Testes/rust/investida/target/debug/deps/csv-663f0d0efecaf309.rmeta: /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.2.2/src/lib.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.2.2/src/byte_record.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.2.2/src/cookbook.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.2.2/src/debug.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.2.2/src/deserializer.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.2.2/src/error.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.2.2/src/reader.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.2.2/src/serializer.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.2.2/src/string_record.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.2.2/src/tutorial.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.2.2/src/writer.rs
+
+/home/eduardo/Documentos/TADS/Testes/rust/investida/target/debug/deps/csv-663f0d0efecaf309.d: /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.2.2/src/lib.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.2.2/src/byte_record.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.2.2/src/cookbook.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.2.2/src/debug.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.2.2/src/deserializer.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.2.2/src/error.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.2.2/src/reader.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.2.2/src/serializer.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.2.2/src/string_record.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.2.2/src/tutorial.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.2.2/src/writer.rs
+
+/home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.2.2/src/lib.rs:
+/home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.2.2/src/byte_record.rs:
+/home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.2.2/src/cookbook.rs:
+/home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.2.2/src/debug.rs:
+/home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.2.2/src/deserializer.rs:
+/home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.2.2/src/error.rs:
+/home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.2.2/src/reader.rs:
+/home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.2.2/src/serializer.rs:
+/home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.2.2/src/string_record.rs:
+/home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.2.2/src/tutorial.rs:
+/home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/csv-1.2.2/src/writer.rs:
