@@ -1,8 +1,0 @@
-/home/eduardo/Documentos/TADS/Testes/rust/investida/target/debug/deps/cc-6d71334a69aaf663.rmeta: /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/cc-1.0.79/src/lib.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/cc-1.0.79/src/windows_registry.rs
-
-/home/eduardo/Documentos/TADS/Testes/rust/investida/target/debug/deps/libcc-6d71334a69aaf663.rlib: /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/cc-1.0.79/src/lib.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/cc-1.0.79/src/windows_registry.rs
-
-/home/eduardo/Documentos/TADS/Testes/rust/investida/target/debug/deps/cc-6d71334a69aaf663.d: /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/cc-1.0.79/src/lib.rs /home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/cc-1.0.79/src/windows_registry.rs
-
-/home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/cc-1.0.79/src/lib.rs:
-/home/eduardo/.cargo/registry/src/github.com-1ecc6299db9ec823/cc-1.0.79/src/windows_registry.rs:
