@@ -1,0 +1,100 @@
+"
+<!DOCTYPE html>
+<html lang='pt'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Login - Biblioteca Moraes</title>
+    <link rel='stylesheet' href='style/standard.css'>
+    <style>
+        html{
+            margin: 0;
+            padding: 0;
+            border: 0;
+            background-image: url('https://media.giphy.com/media/h3o35RC5wCdXl0Bjoc/giphy.gif');
+            background-repeat: no-repeat;
+            background-size: cover !important;
+            background-position: center;
+            color: black;
+        }
+        body {
+            font-family: cursive, Helvetica, sans-serif;
+            align-items: center;
+            color: rgb(5, 5, 5);
+        }
+        .container {
+            width: auto;
+            max-width: 320px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff1d;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            border-radius: 50px;
+            text-align: center;
+            margin-top: 22vh;
+
+        }
+        h2 {
+            color: #004367;
+        }
+        input[type='text'],
+        input[type='password'] {
+            width: 100%;
+            max-width: 300px;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #10368ff9;
+            border-radius: 50px;
+            background-color: transparent;
+            color: black;
+            border-right: transparent;
+            border-left: transparent;
+        }
+        button {
+            background-color: #53a2e6;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+            max-width: 20vh;
+            min-width: 5vh;
+            font-size: large;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        button.forgot-password {
+            background-color: #f39c12;
+        }
+        p {
+            margin-top: 10px;
+            font-size: small;
+        }
+        .input{
+            text-align: left;
+            font-size: small;
+        }
+    </style>
+</head>
+<body>
+    <div class='container'>
+        <h2>
+            Login <br>
+            Biblioteca Moraes
+        </h2>
+        <form action='/login' method='POST'>
+            <div class='input'>
+                E-mail:
+                <input type='text' name='email' placeholder='exemplo@exemplo.com' required><br>
+                
+                Senha:
+                <input type='password' name='password' placeholder='******' required><br>
+            </div>
+            <button type='submit'>Entrar</button>
+        </form>
+        <p>Esqueceu a senha? <a href='http://'>Redefinir Senha</a></p>
+        <p>Não tem uma conta? <a href='/cadastro'>Cadastre-se</a></p>
+    </div>
+</body>
+</html>
+"

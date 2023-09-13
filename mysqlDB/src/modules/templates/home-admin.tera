@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style/standard.css">
+    <link rel="stylesheet" href="style/home-admin.css">
+</head>
+<body>
+    <section class="s-header">
+        <div><h1>Biblioteca Moraes</h1></div>
+        <div>
+            <button class="exit">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA00lEQVR4nO2Wuw3CMBBAXwGUsAEdS/BZg4IJGIOOMAKruEUMAMwQGgYAGowsOZITxUG5JCckeNI1lnPPtuzLQZ4BsAOugBVGCiQ+V5SkgcAWwuWKkvpJU+TMg51FyVbTFPspz1/kWAMT8py6OLoncANmwdgQMG2LrI87sAzG+12JLPACNnU+KnKs+Vj3QE8iklQGA4w0RBa4AGMN0VlDZCRHd9C6DGrX+yse7EOrBK20imoZP/jjS/0E12BIWfgclc1Jm+3Wtkrkmj4ny3YmidIG8g1EWe/xhnGWaAAAAABJRU5ErkJggg==">
+            </button>
+        </div>
+    </section>
+    <section class="s-body">
+        <section class="s-left-menu">
+            <div>
+                <img class = "img-profile"src="https://imgs.search.brave.com/EsrZd7kqvfX2ub1nkCAAn_wZu0uRR3zihXBS2bM2yss/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9jZG4t/aWNvbnMtcG5nLmZs/YXRpY29uLmNvbS8x/MjgvNzIxNy83MjE3/OTY3LnBuZw" alt="" srcset="">
+                <%=name%>
+            </div>
+        </section>
+        <section class="s-right">
+            <table>
+                <caption>Livros</caption>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Editora</th>
+                    <th>Autor</th>
+                    <th>Título</th>
+                    <th>Categoria</th>
+                    <th>Edição</th>
+                    <th>Lançamento</th>
+                    <th>Quantidade disponível</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for book in books %}
+                    <tr>
+                        <td>{{ book.id }}</td>
+                        <td>{{ book.publisher }}</td>
+                        <td>{{ book.author }}</td>
+                        <td>{{ book.title }}</td>
+                        <td>{{ book.category }}</td>
+                        <td>{{ book.edition }}</td>
+                        <td>{{ book.date }}</td>
+                        <td>{{ book.description }}</td>
+                        <td>{{ book.qnt }}</td>
+                    </tr>
+                {% endfor %}
+                  
+                </tbody>
+              </table>
+              
+        </section>
+    </section>
+    <section class="s-footer">
+        footer
+    </section>
+</body>
+</html>
