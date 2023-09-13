@@ -2,3 +2,5 @@ Cargo.lock
 tests/
 target/
 .vscode
+db1/
+db2/
