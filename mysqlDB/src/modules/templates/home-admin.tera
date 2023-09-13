@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="style/standard.css">
-    <link rel="stylesheet" href="style/home-admin.css">
+    <link rel="stylesheet" href="/style/standard.css">
+    <link rel="stylesheet" href="/style/home-admin.css">
 </head>
 <body>
     <section class="s-header">
@@ -21,7 +21,7 @@
         <section class="s-left-menu">
             <div>
                 <img class = "img-profile"src="https://imgs.search.brave.com/EsrZd7kqvfX2ub1nkCAAn_wZu0uRR3zihXBS2bM2yss/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9jZG4t/aWNvbnMtcG5nLmZs/YXRpY29uLmNvbS8x/MjgvNzIxNy83MjE3/OTY3LnBuZw" alt="" srcset="">
-                <%=name%>
+                {{ name }}{{ surname }}
             </div>
         </section>
         <section class="s-right">

@@ -1,3 +1,4 @@
+use rocket::{Data, FromForm};
 use serde::{Serialize, Deserialize};
 
 #[derive(Serialize, Deserialize)]
@@ -12,6 +13,10 @@ pub struct Book{
     pub description: String,
     pub qnt: i32
 }
+
+#[path="../db/db.rs"]
+mod db;
+use db::*;
 
 #[derive(Serialize, Deserialize)]
 pub struct User{
@@ -34,6 +39,23 @@ impl User {
         }
     }
 }
+
+struct Admin;
+struct Librarian;
+
+trait UserPermissions{
+    fn search();
+    fn connect_db();
+    fn order_by(); 
+} trait LibrarianPermissions: UserPermissions{
+    fn add_book();
+    fn edit_qnt();
+} trait AdminPermissions: LibrarianPermissions{
+    fn delete();
+    fn edit();
+}
+
+
 
 #[derive(FromForm)]
 pub struct LoginForm{

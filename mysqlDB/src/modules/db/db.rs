@@ -176,7 +176,7 @@ impl  DataBase {
 
         Ok(rows)
     }
-    pub async fn delete_by(&self, column: String, value: String, table: String) -> Result<i8, DataBaseError>{
+    pub async fn delete_by(&self, column: String, value: String, table: String) -> Result<(), DataBaseError>{
         let mut conn = self.pool.get_conn()?;
         let mut res: i8 = 0;
     
@@ -186,7 +186,7 @@ impl  DataBase {
             let value: i32 = value.trim().parse().unwrap();
 
             if self.search_by(&table, (Some(&column), Some(&value.to_string()))).await? == []{
-                res = 12;
+                return Err(DataBaseError::ValueInvalid(("ID value invalid").to_string()))
             }
 
             conn.exec::<(i32, String, String), Statement, _>(stmt, (value,))?;
@@ -195,9 +195,28 @@ impl  DataBase {
             conn.exec::<(i32, String, String), Statement, _>(stmt, (value,))?;
         }
     
-        Ok(res)
+        Ok(())
     }
+    pub async fn edit_by(&self, column: String, id: String, value: String, table: String) -> Result<(), DataBaseError>{
+        let mut conn = self.pool.get_conn()?;
 
+        if self.search_by(&table, (Some(&"id".to_string()), Some(&id))).await? == []{
+            return Err(DataBaseError::ValueInvalid(("ID value invalid").to_string()))
+        }
+        
+        let id: i32 = id.trim().parse().unwrap();
+        let stmt = conn.prep(&format!("UPDATE {} SET {} = ? WHERE id = ?", table, column))?;
+        
+        if column == "qnt_specimens".to_string(){
+            let value: i32 = value.trim().parse().unwrap();
+            conn.exec::<(i32, String, String), Statement, _>(stmt, (value, id))?;
+        }
+        else{
+            conn.exec::<(i32, String, String), Statement, _>(stmt, (value, id))?;
+        }
+    
+        Ok(())
+    }
 }
 
 

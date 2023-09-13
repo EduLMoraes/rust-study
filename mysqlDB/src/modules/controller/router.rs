@@ -12,7 +12,12 @@ use structs::*;
 
 #[get("/")]
 fn index() -> Html<String>{
-    Html(include!("../templates/index.html").to_string())
+    let mut context = Context::new();
+
+    let tera = Tera::new("./src/modules/templates/*.tera").expect("Erro ao carregar templates");
+    let rendered = tera.render("index.tera", &context).expect("Erro ao renderizar template");
+
+    Html(rendered)
 }
 
 
@@ -70,16 +75,15 @@ fn admin(mut cookies: Cookies) -> Result<Html<String>, Redirect>{
         let user_session: User = serde_json::from_str(user_session_cookie.value()).unwrap();
         
         if user_session.permission == "1".to_string(){
-
-            
-
-            let livros: Vec<Book> = vec![
-                // Preencha esta lista com seus dados de livros
+            let books: Vec<Book> = vec![
+                // Preencha esta lista com seus dados de books
             ];
+            
         
-
             let mut context = Context::new();
-            context.insert("livros", &livros);
+            context.insert("name", &user_session.name);
+            context.insert("name", &user_session.surname);
+            context.insert("books", &books);
         
             let tera = Tera::new("./src/modules/templates/*.tera").expect("Erro ao carregar templates");
             let rendered = tera.render("home-admin.tera", &context).expect("Erro ao renderizar template");

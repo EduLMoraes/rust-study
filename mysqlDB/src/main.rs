@@ -11,7 +11,7 @@ mod router;
 fn rocket() -> LaunchError{
     rocket::ignite()
     .mount("/", router::routes())
-    .mount("/static", StaticFiles::from("modules/templates"))
+    .mount("/style", StaticFiles::from("src/modules/templates/style"))
     .launch()
 }
 

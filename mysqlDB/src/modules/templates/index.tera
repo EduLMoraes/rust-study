@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Biblioteca Moraes</title>
+    <link rel="stylesheet" href="/style/standard.css">
+    <link rel="stylesheet" href="/style/index.css">
+</head>
+<body>
+    <div class="container">
+        <h2>
+            Login <br>
+            Biblioteca Moraes
+        </h2>
+        <form action="/login" method="POST">
+            <div class="input">
+                E-mail:
+                <input type="text" name="email" placeholder="exemplo@exemplo.com" required><br>
+                
+                Senha:
+                <input type="password" name="password" placeholder="******" required><br>
+            </div>
+            <button type="submit">Entrar</button>
+        </form>
+        <p>Esqueceu a senha? <a href="http://">Redefinir Senha</a></p>
+        <p>Não tem uma conta? <a href="/cadastro">Cadastre-se</a></p>
+    </div>
+</body>
+</html>
