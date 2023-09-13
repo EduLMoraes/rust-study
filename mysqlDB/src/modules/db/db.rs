@@ -2,7 +2,7 @@ use mysql::{*, prelude::Queryable};
 use thiserror::Error;
 
 pub struct DataBase{
-    pool: Pool,
+    pub pool: Pool,
 }
 impl  DataBase {
     pub fn new() -> DataBase {
@@ -178,7 +178,6 @@ impl  DataBase {
     }
     pub async fn delete_by(&self, column: String, value: String, table: String) -> Result<(), DataBaseError>{
         let mut conn = self.pool.get_conn()?;
-        let mut res: i8 = 0;
     
         let stmt = conn.prep(&format!("DELETE FROM {} WHERE {} = ?", table, column))?;
     
