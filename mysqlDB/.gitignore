@@ -4,3 +4,4 @@ target/
 .vscode
 src/db1/
 src/db2/
+src/modules/templates/views

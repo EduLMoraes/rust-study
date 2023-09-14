@@ -7,7 +7,6 @@ mod structs;
 use structs::User;
 
 use std::{error::Error, i8};
-use rocket::http::{Cookies, Cookie};
 
 
 pub async fn login(email: String, password: String) -> Result<User, Box<dyn Error>>{
@@ -38,6 +37,7 @@ pub async fn login(email: String, password: String) -> Result<User, Box<dyn Erro
     Err("Password incorrect.".into())
 }
 
+#[allow(dead_code)]
 pub async fn new_user((name, surname, email, password, confirm_password): (String, String, String, String, String)) -> Result<String, Box<dyn std::error::Error>> {
     let db = DataBase::new();
 

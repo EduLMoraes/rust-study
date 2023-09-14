@@ -1,7 +1,6 @@
 use rocket::FromForm;
 use serde::{Serialize, Deserialize};
 use std::error::Error;
-
 use mysql::*;
 use tokio::runtime;
 
@@ -22,6 +21,10 @@ pub struct Book{
 #[path="../db/db.rs"]
 mod db;
 use db::*;
+
+#[path = "../util/transform.rs"]
+mod transform;
+use transform::*;
 
 #[derive(Serialize, Deserialize)]
 pub struct User{
@@ -45,7 +48,9 @@ pub struct User{
     fn edit(&self,column: String, id: String, new_value: String, table: String) -> Result<(), DataBaseError>;
 }
 
+#[allow(dead_code)]
 impl User{
+    /// Creates a new [`User`].
     pub fn new(data_user: Vec<String>) -> User{
         User { 
             email: data_user[0].clone(), 
@@ -119,6 +124,11 @@ impl User{
     }
 } impl LibrarianPermissions for User{
     fn add_book(&self, book: Book) -> Result<(), DataBaseError> {
+
+        if !(to_int(self.permission.clone()) <= 2){
+            return Err(DataBaseError::InvalidPermission("Permission denied".to_string()));
+        }
+
         let db = self.connect_db();
         let rt = runtime::Runtime::new().unwrap();
 
@@ -136,6 +146,11 @@ impl User{
         Ok(())
     }
     fn edit_qnt(&self, id: String, new_value: String) -> Result<(), DataBaseError> {
+
+        if !(to_int(self.permission.clone()) <= 2){
+            return Err(DataBaseError::InvalidPermission(("ID value invalid").to_string()));
+        }
+
         let db = self.connect_db();
         let rt = runtime::Runtime::new().unwrap();
 
@@ -145,6 +160,11 @@ impl User{
     }
 } impl AdminPermissions for User{
     fn search_user(&self) -> Result<Vec<User>, DataBaseError>{
+
+        if !(to_int(self.permission.clone()) <= 1){
+            return Err(DataBaseError::InvalidPermission("Permission denied".to_string()));
+        }
+
         let db = self.connect_db();
         let rt = runtime::Runtime::new().unwrap();
 
@@ -180,6 +200,9 @@ impl User{
         Ok(librarians)
     }
     fn order_user_by(&self, column: &str) -> Result<Vec<User>, Box<dyn Error>>{
+        if !(to_int(self.permission.clone()) <= 1){
+            return Err("Permission denied".into());
+        }
             let mut users = self.search_user().unwrap();
     
             match column {
@@ -193,6 +216,10 @@ impl User{
             Ok(users)
     }
     fn delete(&self, id: String, table: String) -> Result<(), DataBaseError>{
+        if !(to_int(self.permission.clone()) <= 1){
+            return Err(DataBaseError::InvalidPermission("Permission denied".to_string()));
+        }
+        
         let db = self.connect_db();
         let rt = runtime::Runtime::new().unwrap();
 
@@ -201,6 +228,10 @@ impl User{
         Ok(())
     }
     fn edit(&self,column: String, id: String, new_value: String, table: String) -> Result<(), DataBaseError> {
+        if !(to_int(self.permission.clone()) <= 1){
+            return Err(DataBaseError::InvalidPermission("Permission denied".to_string()));
+        }
+
         let db = self.connect_db();
         let rt = runtime::Runtime::new().unwrap();
 

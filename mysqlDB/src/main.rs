@@ -3,7 +3,7 @@
 
 use rocket::error::LaunchError;
 use rocket_contrib::serve::StaticFiles;
-use tera::Template;
+//use tera::Template;
 
 #[path = "./modules/controller/router.rs"]
 mod router;

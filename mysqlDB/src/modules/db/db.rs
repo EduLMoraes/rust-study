@@ -1,15 +1,17 @@
 use mysql::{*, prelude::Queryable};
 use thiserror::Error;
 
+#[allow(dead_code)]
 pub struct DataBase{
     pub pool: Pool,
 }
+#[allow(dead_code)]
 impl  DataBase {
     pub fn new() -> DataBase {
         DataBase {pool: Pool::new("mysql://automato:0178@localhost:3306/study").unwrap() }
     }
 
-    pub async fn has_user(&self, email: &String) -> Result<bool, DataBaseError>{
+    pub fn has_user(&self, email: &String) -> Result<bool, DataBaseError>{
         let mut conn = self.pool.get_conn()?;
 
         let stmt = conn.prep("SELECT email FROM users WHERE email = ?")?;
@@ -116,7 +118,7 @@ impl  DataBase {
 
         if !is_valid_email{
             return Err(DataBaseError::EmailInvalid("Error: Invalid email".into()))
-        }else if !self.has_user(&email).await?{
+        }else if !self.has_user(&email)?{
             return Err(DataBaseError::EmailInvalid("Error: Email already exists".into()))
         }else{
             let stmt = conn.prep("INSERT INTO 
@@ -155,8 +157,7 @@ impl  DataBase {
     pub async fn order_by(&self, table: &String, column: &String, asc: Option<bool>) -> Result<Vec<Row>, DataBaseError>{
         let mut conn = self.pool.get_conn()?;
 
-        #[warn(unused_assignments)]
-        let mut ascendent = String::new();
+        let ascendent: String;
 
         match asc {
             Some(response) =>{
@@ -220,6 +221,7 @@ impl  DataBase {
 
 
 #[derive(Debug, Error)]
+#[allow(dead_code)]
 pub enum DataBaseError{
     #[error("Email is invalid: {0}")]
     ConnectionFailed(String),
@@ -235,6 +237,16 @@ pub enum DataBaseError{
 
     #[error("Value is invalid: {0}")]
     ValueInvalid(String),
+
+    #[error("Permission denied: {0}")]
+    InvalidPermission(String),
+}
+
+
+impl From<String> for DataBaseError {
+    fn from(v: String) -> Self {
+        Self::ConnectionFailed (v)
+    }
 }
 impl From<mysql::Error> for DataBaseError {
     fn from(err: mysql::Error) -> Self{

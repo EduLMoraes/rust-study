@@ -1,5 +1,5 @@
 use rocket::{Route, get, post};
-use rocket::response::{content::Html, Redirect, Responder};
+use rocket::response::{content::Html, Redirect};
 use rocket::request::Form;
 use tokio::runtime;
 use rocket::http::{Cookies, Cookie};
@@ -12,7 +12,7 @@ use structs::*;
 
 #[get("/")]
 fn index() -> Html<String>{
-    let mut context = Context::new();
+    let context = Context::new();
 
     let tera = Tera::new("./src/modules/templates/*.tera").expect("Erro ao carregar templates");
     let rendered = tera.render("index.tera", &context).expect("Erro ao renderizar template");
@@ -82,7 +82,7 @@ fn admin(mut cookies: Cookies) -> Result<Html<String>, Redirect>{
         
             let mut context = Context::new();
             context.insert("name", &user_session.name);
-            context.insert("name", &user_session.surname);
+            context.insert("surname", &user_session.surname);
             context.insert("books", &books);
         
             let tera = Tera::new("./src/modules/templates/*.tera").expect("Erro ao carregar templates");
