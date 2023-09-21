@@ -89,3 +89,49 @@ table {
     tr:nth-child(even) {
         background-color: #f2f2f2;
     }
+
+main{
+    display: flex;
+    background-color: #333;
+    justify-content: space-evenly; 
+    height: 100%;
+}
+.m-column{
+    max-width: 50%;
+    padding-top: 50px;
+}
+.mcr-books{
+    border-radius: 10px;
+    width: 600px;
+    background-color: #fff;
+}
+    .mcr-header{
+        background-color: #f2f2f2;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        text-align: left;
+        padding-left: 20px;
+    }
+    .mcr-body{
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        justify-content: space-evenly; 
+    }
+
+.button-book, .button-lib, .button-admin{
+    color: black;
+    border-radius: 20px;
+    font-size: 16px;
+    font-family: ubuntu;
+}
+.button-book{
+    background-color: #0aff;
+
+}
+.button-lib{
+    background-color: #ffff00;
+}
+.button-admin{
+    background-color: #ff0000;
+}

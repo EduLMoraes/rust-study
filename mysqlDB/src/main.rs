@@ -12,6 +12,7 @@ fn rocket() -> LaunchError{
     rocket::ignite()
     .mount("/", router::routes())
     .mount("/style", StaticFiles::from("src/modules/templates/style"))
+    .mount("/script", StaticFiles::from("src/modules/templates/script"))
     .launch()
 }
 

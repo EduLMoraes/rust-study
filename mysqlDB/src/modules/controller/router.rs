@@ -75,18 +75,88 @@ fn admin(mut cookies: Cookies) -> Result<Html<String>, Redirect>{
         let user_session: User = serde_json::from_str(user_session_cookie.value()).unwrap();
         
         if user_session.permission == "1".to_string(){
-            let books: Vec<Book> = vec![
-                // Preencha esta lista com seus dados de books
-            ];
-            
-        
+            let db_librarians = user_session.search_user();
+            let db_books = user_session.search_book();
+
             let mut context = Context::new();
+
+            match db_books{
+                Ok(books) => context.insert("books", &books),
+                Err(_error_data) => ()
+            }
+
+            match db_librarians{
+                Ok(librarians) => context.insert("librarians", &librarians),
+                Err(_error_data) => ()
+            }
+        
+        
             context.insert("name", &user_session.name);
             context.insert("surname", &user_session.surname);
-            context.insert("books", &books);
         
-            let tera = Tera::new("./src/modules/templates/*.tera").expect("Erro ao carregar templates");
-            let rendered = tera.render("home-admin.tera", &context).expect("Erro ao renderizar template");
+            let tera = Tera::new("./src/modules/templates/view/admin/*.tera").expect("Erro ao carregar templates");
+            let rendered = tera.render("home.tera", &context).expect("Erro ao renderizar template");
+
+            Ok(Html(rendered))
+        }else {
+            Err(Redirect::to("/"))
+        }
+    } else {
+        Err(Redirect::to("/"))
+    }
+}
+#[get("/home/admin/librarians")]
+fn get_librarians_admin(mut cookies: Cookies) -> Result<Html<String>, Redirect>{
+    let user_session_cookie = cookies.get_private("user_session");
+
+    if let Some(user_session_cookie) = user_session_cookie {
+        let user_session: User = serde_json::from_str(user_session_cookie.value()).unwrap();
+        
+        if user_session.permission == "1".to_string(){
+            let db_librarians = user_session.search_user();
+
+            let mut context = Context::new();
+
+            match db_librarians{
+                Ok(librarians) => context.insert("librarians", &librarians),
+                Err(_error_data) => ()
+            }
+        
+            context.insert("name", &user_session.name);
+            context.insert("surname", &user_session.surname);
+        
+            let tera = Tera::new("./src/modules/templates/view/admin/*.tera").expect("Erro ao carregar templates");
+            let rendered = tera.render("librarians.tera", &context).expect("Erro ao renderizar template");
+
+            Ok(Html(rendered))
+        }else {
+            Err(Redirect::to("/"))
+        }
+    } else {
+        Err(Redirect::to("/"))
+    }
+}
+#[get("/home/admin/books")]
+fn get_books_admin(mut cookies: Cookies) -> Result<Html<String>, Redirect>{
+    let user_session_cookie = cookies.get_private("user_session");
+
+    if let Some(user_session_cookie) = user_session_cookie {
+        let user_session: User = serde_json::from_str(user_session_cookie.value()).unwrap();
+        
+        if user_session.permission == "1".to_string(){
+            let db_books = user_session.search_book();
+
+            let mut context = Context::new();
+
+            match db_books{
+                Ok(books) => context.insert("books", &books),
+                Err(_error_data) => ()
+            }
+            context.insert("name", &user_session.name);
+            context.insert("surname", &user_session.surname);
+        
+            let tera = Tera::new("./src/modules/templates/view/admin/*.tera").expect("Erro ao carregar templates");
+            let rendered = tera.render("books.tera", &context).expect("Erro ao renderizar template");
 
             Ok(Html(rendered))
         }else {
@@ -107,7 +177,7 @@ fn librarian(mut cookies: Cookies) -> Result<Html<String>, Redirect>{
         let user_session: User = serde_json::from_str(user_session_cookie.value()).unwrap();
         
         if user_session.permission == "2".to_string(){
-            Ok(Html(include!("../templates/home-librarian.html").to_string()))
+            Ok(Html(include!("../templates/view/librarian/home.html").to_string()))
         }else {
             Err(Redirect::to("/"))
         }
@@ -126,7 +196,7 @@ fn user(mut cookies: Cookies) -> Result<Html<String>, Redirect>{
         let user_session: User = serde_json::from_str(user_session_cookie.value()).unwrap();
         
         if user_session.permission == "3".to_string(){
-            Ok(Html(include!("../templates/home-user.html").to_string()))
+            Ok(Html(include!("../templates/view/user/home.html").to_string()))
         }else {
             Err(Redirect::to("/"))
         }
@@ -137,9 +207,19 @@ fn user(mut cookies: Cookies) -> Result<Html<String>, Redirect>{
 
 
 
+#[get("/exit")]
+fn user_exit(mut cookies: Cookies) -> Result<Redirect, Redirect>{
+    cookies.remove_private(Cookie::named("user_session"));
+
+    Ok(Redirect::to("/"))
+}
+
+
+
 pub fn routes()-> Vec<Route>{
     routes![
             index, login, redirect_user,
-            admin, librarian, user
+            admin, librarian, user,
+            user_exit, get_librarians_admin, get_books_admin
         ]
 }
