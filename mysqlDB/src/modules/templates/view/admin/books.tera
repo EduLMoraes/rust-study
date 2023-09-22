@@ -73,57 +73,117 @@
                                 <div class="mcr-header">
                                     <h3>Adicionar Livro</h3>
                                 </div>
-                                <div class="mcr-body" style="justify-content: space-between">
-                                    <label>
-                                        Título:<br>
-                                        <input id="title" type="text"> 
-                                    </label>
+                                <div class="mcr-body">
+                                    <form id="put-form">
+                                        <div class="form-item">
+                                            <label>
+                                                <b>*</b>Título:
+                                            </label>
+                                            <input id="title" type="text"> 
+                                        </div>
 
-                                    <label>
-                                        Editora:<br>
-                                        <input id="pub_company" type="text"> 
-                                    </label>
+                                        <div class="form-item">
+                                            <label>
+                                                <b>*</b>Autor:
+                                            </label>
+                                            <input id="author" type="text"> 
+                                        </div>
 
-                                    <label>
-                                        Categoria:<br>
-                                        <select id="categoriasLivros">
-                                            <option value="Ficcao">Ficção</option>
-                                            <option value="NaoFiccao">Não Ficção</option>
-                                            <option value="LiteraturaInfantojuvenil">Literatura Infantojuvenil</option>
-                                            <option value="Poesia">Poesia</option>
-                                            <option value="ReligiaoEspiritualidade">Religião e Espiritualidade</option>
-                                            <option value="HistoriaCultura">História e Cultura</option>
-                                            <option value="CienciaNatureza">Ciência e Natureza</option>
-                                            <option value="AutoajudaDesenvolvimentoPessoal">Autoajuda e Desenvolvimento Pessoal</option>
-                                            <option value="NegociosEconomia">Negócios e Economia</option>
-                                            <option value="LivrosReferencia">Livros de Referência</option>
-                                            <option value="FiccaoHistorica">Ficção Histórica</option>
-                                            <option value="PolicialThriller">Policial e Thriller</option>
-                                            <option value="ViagemAventura">Viagem e Aventura</option>
-                                            <option value="SaudeFitness">Saúde e Fitness</option>
-                                            <option value="CulinariaGastronomia">Culinária e Gastronomia</option>
-                                        </select>
-                                    </label>
-
-                                    <label>
-                                        Edição:<br>
-                                        <input id="edition" type="number"> 
-                                    </label>
-
-                                    <label>
-                                        Ano de Lançamento:<br>
-                                        <input id="publishing" type="text"> 
-                                    </label>
-
-                                    <label>
-                                        Descrição:<br>
-                                        <input id="description" type="text"> 
-                                    </label>
-
+                                        <div class="form-item">
+                                            <label>
+                                                <b>*</b>Editora:
+                                            </label>
+                                            <input id="pub_company" type="text"> 
+                                        </div>
+                                    
+                                        <div class="form-item">
+                                            <label>
+                                                <b>*</b>Categoria:
+                                            </label>
+                                            <select id="category">
+                                                <option value="Drama">Drama</option>
+                                                <option value="Romance">Romance</option>
+                                                <option value="Terror">Terror</option>
+                                                <option value="Misterio">Mistério</option>
+                                                <option value="FiccaoCientifica">Ficção Científica</option>
+                                                <option value="Fantasia">Fantasia</option>
+                                                <option value="Aventura">Aventura</option>
+                                                <option value="Suspense">Suspense</option>
+                                                <option value="LiteraturaClassica">Literatura Clássica</option>
+                                                <option value="Biografia">Biografia</option>
+                                                <option value="Autobiografia">Autobiografia</option>
+                                                <option value="Memorias">Memórias</option>
+                                                <option value="Historia">História</option>
+                                                <option value="Ciencia">Ciência</option>
+                                                <option value="Tecnologia">Tecnologia</option>
+                                                <option value="Politica">Política</option>
+                                                <option value="Filosofia">Filosofia</option>
+                                                <option value="Autoajuda">Autoajuda</option>
+                                                <option value="Infantil">Infantil</option>
+                                                <option value="LivrosJovensAdultos">Livros para Jovens Adultos (YA)</option>
+                                                <option value="LivrosIlustrados">Livros Ilustrados</option>
+                                                <option value="PoesiaClassica">Poesia Clássica</option>
+                                                <option value="PoesiaContemporanea">Poesia Contemporânea</option>
+                                                <option value="Haicais">Haicais</option>
+                                                <option value="PoesiaEpica">Poesia Épica</option>
+                                                <option value="ReligiaoEspiritualidade">Religião e Espiritualidade</option>
+                                                <option value="HistoriaMundial">História Mundial</option>
+                                                <option value="HistoriaRegional">História Regional</option>
+                                                <option value="CulturaPop">Cultura Pop</option>
+                                                <option value="ArteeMusica">Arte e Música</option>
+                                                <option value="Astronomia">Astronomia</option>
+                                                <option value="Biologia">Biologia</option>
+                                                <option value="Quimica">Química</option>
+                                                <option value="Fisica">Física</option>
+                                                <option value="MeioAmbiente">Meio Ambiente</option>
+                                                <option value="CienciasdaTerra">Ciências da Terra</option>
+                                                <option value="AutoajudaDesenvolvimentoPessoal">Autoajuda e Desenvolvimento Pessoal</option>
+                                                <option value="Empreendedorismo">Empreendedorismo</option>
+                                                <option value="FinancasPessoais">Finanças Pessoais</option>
+                                                <option value="Economia">Economia</option>
+                                                <option value="Lideranca">Liderança</option>
+                                                <option value="Dicionarios">Dicionários</option>
+                                                <option value="Enciclopedias">Enciclopédias</option>
+                                                <option value="GuiasdeEstudo">Guias de Estudo</option>
+                                                <option value="ManuaisTecnicos">Manuais Técnicos</option>
+                                                <option value="FiccaoHistorica">Ficção Histórica</option>
+                                                <option value="SuspenseInvestigacao">Suspense e Investigação</option>
+                                                <option value="ViagemAventura">Viagem e Aventura</option>
+                                                <option value="Saude">Saúde</option>
+                                                <option value="CulinariaGastronomia">Culinária e Gastronomia</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="form-item">
+                                            <label>
+                                                <b>*</b>Edição:
+                                            </label>
+                                            <input id="edition" type="number"> 
+                                        </div>
+                                        
+                                        <div class="form-item">
+                                            <label>
+                                                <b>*</b>Ano de Lançamento:
+                                            </label>
+                                            <input id="publishing" type="number"> 
+                                        </div>
+                                        
+                                        <div class="form-item">
+                                            <label>
+                                                <b>*</b>Descrição:
+                                            </label>
+                                            <textarea id="description" type="text"> </textarea>
+                                        </div>
+                                        
+                                        <div class="form-item">
+                                            <button type="submit" class="submit"><span>Adicionar</span></button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                         <div class="card mb-4">
+
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
                                 Tabela de Livros
@@ -193,10 +253,9 @@
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="/script/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/chart-area-demo.js"></script>
-        <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
         <script src="/script/datatables-simple-demo.js"></script>
+        <script src="/script/method_put.js" crossorigin="anonymous"></script>
+
     </body>
 </html>

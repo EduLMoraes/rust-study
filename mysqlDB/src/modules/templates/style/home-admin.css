@@ -7,12 +7,6 @@ section{
     width: 100%;
 }
 
-:defined{
-    primary-color: rgb(57, 57, 255);
-    secondary-color: #333;
-    tertiary-color: #fff;
-}
-
 .s-header{
     background-color: #333;
     color: white;
@@ -92,18 +86,21 @@ table {
 
 main{
     display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
     background-color: #333;
     justify-content: space-evenly; 
     height: 100%;
 }
 .m-column{
-    max-width: 50%;
     padding-top: 50px;
 }
 .mcr-books{
     border-radius: 10px;
-    width: 600px;
     background-color: #fff;
+    max-width: 450px;
+    margin: 20px;
+    justify-content: space-between;
 }
     .mcr-header{
         background-color: #f2f2f2;
@@ -119,19 +116,86 @@ main{
         justify-content: space-evenly; 
     }
 
-.button-book, .button-lib, .button-admin{
-    color: black;
-    border-radius: 20px;
-    font-size: 16px;
-    font-family: ubuntu;
+.mcr{
+    justify-content: justify;
 }
-.button-book{
-    background-color: #0aff;
+
+/* Estilize o formulário */
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 500px; 
+    margin: 0 auto; 
+}
+
+.form-item {
+    flex-basis: calc(50% - 10px); 
+    margin-bottom: 20px;
+}
+
+label {
+    display: block; 
+}
+b{
+    color: red;
+}
+#edition, #pub_company, #publishing, #description, #title, #category{
+   font-family: "Helvetica Neue", comic-sans, arial, helvetica, sans-serif;
+}
+#edition{
+    width: 50px;
+}
+#pub_company{
+    width: 100px;
+}
+#publishing{
+    width: 70px;
+}
+#description{
+    height: 100px;
+    text-align: left;
+    justify-content: left;
+    max-width: 100%;
+    min-width: 250px;
 
 }
-.button-lib{
-    background-color: #ffff00;
+#category{
+    width: 200px;
+    height: 40px;
+    margin-right: calc(100px)
 }
-.button-admin{
-    background-color: #ff0000;
-}
+.submit {
+    border-radius: 4px;
+    background-color: blue;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 22px;
+    width: 180px;
+    height: 60px;
+    cursor: pointer;
+  }
+
+  .submit span {
+    position: relative;
+    transition: 0.5s;
+  }
+
+  .submit span:after {
+    content: "\00bb";
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+
+  .submit:hover span {
+    padding-right: 25px;
+  }
+
+  .submit:hover span:after {
+    opacity: 1;
+    right: 0;
+  }

@@ -1,5 +1,5 @@
-use rocket::{Route, get, post};
-use rocket::response::{content::Html, Redirect};
+use rocket::{Route, get, post, http::Status};
+use rocket::response::{content::Html, Redirect, status};
 use rocket::request::Form;
 use tokio::runtime;
 use rocket::http::{Cookies, Cookie};
@@ -169,6 +169,14 @@ fn get_books_admin(mut cookies: Cookies) -> Result<Html<String>, Redirect>{
 
 
 
+#[put("/add_book", data = "<form>")]
+fn add_book(form: Form<BookForm>) -> status::Custom<Result<String, String>>{
+    let success_response = format!("Livro '{}' adicionado com sucesso!", form.title);
+    status::Custom(Status::Ok, Ok(success_response))
+}
+
+
+
 #[get("/home/librarian")]
 fn librarian(mut cookies: Cookies) -> Result<Html<String>, Redirect>{
     let user_session_cookie = cookies.get_private("user_session");
@@ -220,6 +228,7 @@ pub fn routes()-> Vec<Route>{
     routes![
             index, login, redirect_user,
             admin, librarian, user,
-            user_exit, get_librarians_admin, get_books_admin
+            user_exit, get_librarians_admin, get_books_admin,
+            add_book
         ]
 }

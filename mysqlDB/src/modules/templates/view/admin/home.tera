@@ -69,7 +69,6 @@
                 <main>
                     <div class="m-column">
                         <div class="container-fluid px-4" style = "display: grid">
-                            
                             <div class="card mb-4">
                                 <div class="card-header">
                                     <i class="fas fa-table me-1"></i>
@@ -115,93 +114,33 @@
                                     </table>
                                 </div>
                             </div>
-                            <div class="card mb-4">
-                                <div class="card-header">
-                                    <i class="fas fa-table me-1"></i>
-                                    Tabela de Bibliotecarios
-                                </div>
-                                <div class="card-body">
-                                    <table id="datatablesSimple">
-                                        <thead>
-                                        <tr>
-                                            <th>Email</th>
-                                            <th>Nome completo</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                            {% for librarian in librarians %}
-                                                <tr>
-                                                    <td>{{ librarian.email }}</td>
-                                                    <td>{{ librarian.name }} {{ librarian.surname }}</td>
-                                                </tr>
-                                            {% endfor %}
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            
                         </div>
                     </div>
                     <div class="m-column">
-                        <div class="mcr-books">
-                            <div class="mcr-header">
-                                <h3>Gerenciamento Biblioteca</h3>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Tabela de Bibliotecarios
                             </div>
-                            <div class="mcr-body" style="justify-content: space-between">
-                                <button type="button" class="button-book">
-                                    <i class="bi bi-book"></i>
-                                    ADD LIVRO
-                                </button>
-
-                                <button type="button" class="button-lib">
-                                    <i class="bi bi-person"></i>
-                                    ADD BIBLIOTECARIO
-                                </button>
-
-                                <button type="button" class="button-admin">
-                                    <i class="bi bi-person-fill"></i>
-                                    ADD ADMIN
-                                </button>
-
-                                <br>
-                                <br>
-
-                                <button type="button" class="button-book">
-                                    <i class="bi bi-book"></i>
-                                    EDITAR LIVRO
-                                </button>
-
-                                <button type="button" class="button-lib">
-                                    <i class="bi bi-person"></i>
-                                    EDITAR BIBLIOTECARIO
-                                </button>
-
-                                <button type="button" class="button-admin">
-                                    <i class="bi bi-person-fill"></i>
-                                    EDITAR ADMIN
-                                </button>
-
-                                <br>
-                                <br>
-
-                                <button type="button" class="button-book">
-                                    <i class="bi bi-book"></i>
-                                    EXCLUIR LIVRO
-                                </button>
-
-                                <button type="button" class="button-lib">
-                                    <i class="bi bi-person"></i>
-                                    EXCLUIR BIBLIOTECARIO
-                                </button>
-
-                                <button type="button" class="button-admin">
-                                    <i class="bi bi-person-fill"></i>
-                                    EXCLUIR ADMIN
-                                </button>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                    <tr>
+                                        <th>Email</th>
+                                        <th>Nome completo</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for librarian in librarians %}
+                                            <tr>
+                                                <td>{{ librarian.email }}</td>
+                                                <td>{{ librarian.name }} {{ librarian.surname }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-
-                        
                     </div>
                     
                 </main>

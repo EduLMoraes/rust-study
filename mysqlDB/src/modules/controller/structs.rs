@@ -250,4 +250,14 @@ pub struct LoginForm{
     pub email: String,
     pub password: String,
 }
+#[derive(FromForm)]
 
+pub struct BookForm{
+    pub title: String,
+    pub author: String,
+    pub publisher: String,
+    pub category: String,
+    pub edition: String,
+    pub date: String,
+    pub description: String,
+}
