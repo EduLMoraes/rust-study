@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar-se - Biblioteca Moraes</title>
+    <link rel="stylesheet" href="/style/standard.css">
+    <link rel="stylesheet" href="/style/index.css">
+
+</head>
+<body>
+    <div class="container">
+        <h2>
+            Cadastro <br>
+            Biblioteca Moraes
+        </h2>
+        <form id="put-form-register">
+            <div class="form-item">
+                <label>
+                    <b>*</b>Nome:
+                </label>
+                <input name="name" id="name" type="text" required> 
+            </div>
+
+            <div class="form-item">
+                <label>
+                    <b>*</b>Sobrenome:
+                </label>
+                <input name="surname" id="surname" type="text" required> 
+            </div>
+
+            <div class="form-item">
+                <label>
+                    <b>*</b>Email:
+                </label>
+                <input name="email" id="email" type="email" required> 
+            </div>
+
+            <div class="form-item">
+                <label>
+                    <b>*</b>Senha:
+                </label>
+                <input name="password" id="password" type="password" class="password" required> 
+            </div>
+            <div class="form-item">
+                <label>
+                    <b>*</b>Confirme a senha:
+                </label>
+                <input name="confirm_password" id="confirm_password" type="password" class="password" required> 
+            </div>
+
+            <div class="form-item">
+                <button type="submit" class="submit"><span>Adicionar</span></button>
+            </div>
+        </form>
+        <p>
+            <input type="checkbox" id="view_password" onclick="type_change()"/>
+            Visualizar senha
+        </p>
+        <p>Eu li e concordo com a <a href="http://">política de privacidade</a></p>
+        <p>Já possuí uma conta? <a href="/">Login</a></p>
+    </div>
+</body>
+<script>
+    function type_change(){
+
+        if(document.getElementById("password").type == "password"){
+            document.getElementById('password').type = "text";
+            document.getElementById('confirm_password').type = "text";
+        }else{
+            document.getElementById('password').type = "password";
+            document.getElementById('confirm_password').type = "password";
+        }
+    };
+</script>
+    <script src="/script/put_register.js" crossorigin="anonymous"></script>
+</html>

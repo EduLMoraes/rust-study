@@ -42,6 +42,16 @@ fn login(form: Form<LoginForm>, mut cookies: Cookies) -> Redirect{
     }
 }
 
+#[get("/register")]
+fn register() -> Html<String>{
+    let context = Context::new();
+
+    let tera = Tera::new("./src/modules/templates/*.tera").expect("Erro ao carregar templates");
+    let rendered = tera.render("register.tera", &context).expect("Erro ao renderizar template");
+
+    Html(rendered)
+}
+
 use router_admin::*;
 use router_librarian::*;
 use router_user::*;
@@ -301,7 +311,7 @@ fn user_exit(mut cookies: Cookies) -> Result<Redirect, Redirect>{
 
 pub fn routes()-> Vec<Route>{
     routes![
-            index, login, redirect_user,
+            index, register, login, redirect_user,
             admin, librarian, user,
             user_exit, get_librarians_admin, get_books_admin,
             add_book, edit_book, delete_book, add_user, edit_librarian,
