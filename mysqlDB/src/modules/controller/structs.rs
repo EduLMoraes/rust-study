@@ -1,11 +1,16 @@
+
+/// Esse módulo contém todas as estruturas utilizadas no projeto,
+/// com exceção da struct DataBase.
+
 use rocket::FromForm;
 use serde::{Serialize, Deserialize};
 use std::error::Error;
 use mysql::*;
 use tokio::runtime;
+use rocket_contrib::json::Json;
 
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Book{
     pub id: i32,
     pub publisher: String,
@@ -15,15 +20,15 @@ pub struct Book{
     pub edition: String,
     pub date: String,
     pub description: String,
-    pub qnt: i32
+    pub qnt: String
 }
 
 #[path="../db/db.rs"]
-mod db;
+pub mod db;
 use db::*;
 
 #[path = "../util/transform.rs"]
-mod transform;
+pub mod transform;
 use transform::*;
 
 #[derive(Serialize, Deserialize)]
@@ -39,7 +44,7 @@ pub struct User{
     fn search_book(&self) -> Result<Vec<Book>, DataBaseError>;
     fn order_book_by(&self, column: &str) -> Result<Vec<Book>, Box<dyn Error>>; 
 } pub trait LibrarianPermissions: UserPermissions{
-    fn add_book(&self, book: Book) -> Result<(), DataBaseError>;
+    fn add_book(&self, book: Json<BookJS>) -> Result<(), DataBaseError>;
     fn edit_qnt(&self, id: String, new_value: String) -> Result<(), DataBaseError>;
 } pub trait AdminPermissions: LibrarianPermissions{
     fn search_user(&self) -> Result<Vec<User>, DataBaseError>;
@@ -48,6 +53,8 @@ pub struct User{
     fn edit(&self,column: String, id: String, new_value: String, table: String) -> Result<(), DataBaseError>;
 }
 
+/// Gerenciamento de permissões acoplada ao usuário,
+/// só terá as impl aquele usuário com nível de permissão.
 #[allow(dead_code)]
 impl User{
     /// Creates a new [`User`].
@@ -100,7 +107,7 @@ impl User{
                 edition: edit, 
                 date: date, 
                 description: desc, 
-                qnt: qnt 
+                qnt: qnt.to_string()
             };
 
             collection.push(book);
@@ -123,9 +130,9 @@ impl User{
         Ok(books)
     }
 } impl LibrarianPermissions for User{
-    fn add_book(&self, book: Book) -> Result<(), DataBaseError> {
+    fn add_book(&self, book: Json<BookJS>) -> Result<(), DataBaseError> {
 
-        if !(to_int(self.permission.clone()) <= 2){
+        if !(to_int(self.permission.clone()).unwrap() <= 2){
             return Err(DataBaseError::InvalidPermission("Permission denied".to_string()));
         }
 
@@ -134,20 +141,20 @@ impl User{
 
 
         rt.block_on(db.new_book((
-            book.title, 
-            book.category,
-            book.edition,
-            book.date,
-            book.description,
-            book.author,
-            book.publisher 
+            book.title.clone(), 
+            book.category.clone(),
+            book.edition.clone(),
+            book.publishing.clone(),
+            book.description.clone(),
+            book.author.clone(),
+            book.pub_company.clone() 
         ))).unwrap();
 
         Ok(())
     }
     fn edit_qnt(&self, id: String, new_value: String) -> Result<(), DataBaseError> {
 
-        if !(to_int(self.permission.clone()) <= 2){
+        if !(to_int(self.permission.clone()).unwrap() <= 2){
             return Err(DataBaseError::InvalidPermission(("ID value invalid").to_string()));
         }
 
@@ -161,7 +168,7 @@ impl User{
 } impl AdminPermissions for User{
     fn search_user(&self) -> Result<Vec<User>, DataBaseError>{
 
-        if !(to_int(self.permission.clone()) <= 1){
+        if !(to_int(self.permission.clone()).unwrap() <= 1){
             return Err(DataBaseError::InvalidPermission("Permission denied".to_string()));
         }
 
@@ -200,7 +207,7 @@ impl User{
         Ok(librarians)
     }
     fn order_user_by(&self, column: &str) -> Result<Vec<User>, Box<dyn Error>>{
-        if !(to_int(self.permission.clone()) <= 1){
+        if !(to_int(self.permission.clone()).unwrap() <= 1){
             return Err("Permission denied".into());
         }
             let mut users = self.search_user().unwrap();
@@ -216,7 +223,7 @@ impl User{
             Ok(users)
     }
     fn delete(&self, id: String, table: String) -> Result<(), DataBaseError>{
-        if !(to_int(self.permission.clone()) <= 1){
+        if !(to_int(self.permission.clone()).unwrap() <= 1){
             return Err(DataBaseError::InvalidPermission("Permission denied".to_string()));
         }
         
@@ -228,7 +235,7 @@ impl User{
         Ok(())
     }
     fn edit(&self,column: String, id: String, new_value: String, table: String) -> Result<(), DataBaseError> {
-        if !(to_int(self.permission.clone()) <= 1){
+        if !(to_int(self.permission.clone()).unwrap() <= 1){
             return Err(DataBaseError::InvalidPermission("Permission denied".to_string()));
         }
 
@@ -250,14 +257,24 @@ pub struct LoginForm{
     pub email: String,
     pub password: String,
 }
-#[derive(FromForm)]
 
-pub struct BookForm{
+#[derive(Deserialize)]
+pub struct BookJS{
     pub title: String,
     pub author: String,
-    pub publisher: String,
+    pub pub_company: String,
     pub category: String,
     pub edition: String,
-    pub date: String,
+    pub publishing: String,
     pub description: String,
+}
+
+#[derive(Deserialize, Debug)]
+pub struct UserJS{
+    pub name: String,
+    pub surname: String,
+    pub email: String,
+    pub password: String,
+    pub confirm_password: String,
+    pub permission: String
 }

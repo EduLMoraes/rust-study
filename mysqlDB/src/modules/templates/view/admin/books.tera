@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -15,7 +16,7 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">Biblioteca Moraes</a>
+            <a class="navbar-brand ps-3" href="#">Biblioteca Moraes</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -79,78 +80,78 @@
                                             <label>
                                                 <b>*</b>Título:
                                             </label>
-                                            <input id="title" type="text"> 
+                                            <input name="title" id="title" type="text" required> 
                                         </div>
 
                                         <div class="form-item">
                                             <label>
                                                 <b>*</b>Autor:
                                             </label>
-                                            <input id="author" type="text"> 
+                                            <input name="author" id="author" type="text" required> 
                                         </div>
 
                                         <div class="form-item">
                                             <label>
                                                 <b>*</b>Editora:
                                             </label>
-                                            <input id="pub_company" type="text"> 
+                                            <input name="pub_company" id="pub_company" type="text" required> 
                                         </div>
                                     
                                         <div class="form-item">
                                             <label>
                                                 <b>*</b>Categoria:
                                             </label>
-                                            <select id="category">
+                                            <select name="category" id="category" required>
                                                 <option value="Drama">Drama</option>
                                                 <option value="Romance">Romance</option>
                                                 <option value="Terror">Terror</option>
                                                 <option value="Misterio">Mistério</option>
-                                                <option value="FiccaoCientifica">Ficção Científica</option>
+                                                <option value="Ficção Cientifica">Ficção Científica</option>
+                                                <option value="Ficção Brasileira">Ficção Brasileira</option>
                                                 <option value="Fantasia">Fantasia</option>
                                                 <option value="Aventura">Aventura</option>
                                                 <option value="Suspense">Suspense</option>
-                                                <option value="LiteraturaClassica">Literatura Clássica</option>
+                                                <option value="Literatura Clássica">Literatura Clássica</option>
                                                 <option value="Biografia">Biografia</option>
                                                 <option value="Autobiografia">Autobiografia</option>
-                                                <option value="Memorias">Memórias</option>
-                                                <option value="Historia">História</option>
-                                                <option value="Ciencia">Ciência</option>
+                                                <option value="Memórias">Memórias</option>
+                                                <option value="História">História</option>
+                                                <option value="Ciência">Ciência</option>
                                                 <option value="Tecnologia">Tecnologia</option>
-                                                <option value="Politica">Política</option>
+                                                <option value="Política">Política</option>
                                                 <option value="Filosofia">Filosofia</option>
-                                                <option value="Autoajuda">Autoajuda</option>
                                                 <option value="Infantil">Infantil</option>
-                                                <option value="LivrosJovensAdultos">Livros para Jovens Adultos (YA)</option>
-                                                <option value="LivrosIlustrados">Livros Ilustrados</option>
-                                                <option value="PoesiaClassica">Poesia Clássica</option>
-                                                <option value="PoesiaContemporanea">Poesia Contemporânea</option>
+                                                <option value="Livros para Jovens Adultos">Livros para Jovens Adultos (YA)</option>
+                                                <option value="Livros Ilustrados">Livros Ilustrados</option>
+                                                <option value="Poesia Clássica">Poesia Clássica</option>
+                                                <option value="Poesia Contemporânea">Poesia Contemporânea</option>
                                                 <option value="Haicais">Haicais</option>
-                                                <option value="PoesiaEpica">Poesia Épica</option>
-                                                <option value="ReligiaoEspiritualidade">Religião e Espiritualidade</option>
-                                                <option value="HistoriaMundial">História Mundial</option>
-                                                <option value="HistoriaRegional">História Regional</option>
-                                                <option value="CulturaPop">Cultura Pop</option>
-                                                <option value="ArteeMusica">Arte e Música</option>
+                                                <option value="Poesia Épica">Poesia Épica</option>
+                                                <option value="Religião e Espiritualidade">Religião e Espiritualidade</option>
+                                                <option value="História Mundial">História Mundial</option>
+                                                <option value="História Regional">História Regional</option>
+                                                <option value="Cultura Pop">Cultura Pop</option>
+                                                <option value="Arte e Música">Arte e Música</option>
                                                 <option value="Astronomia">Astronomia</option>
                                                 <option value="Biologia">Biologia</option>
-                                                <option value="Quimica">Química</option>
-                                                <option value="Fisica">Física</option>
-                                                <option value="MeioAmbiente">Meio Ambiente</option>
-                                                <option value="CienciasdaTerra">Ciências da Terra</option>
-                                                <option value="AutoajudaDesenvolvimentoPessoal">Autoajuda e Desenvolvimento Pessoal</option>
+                                                <option value="Química">Química</option>
+                                                <option value="Física">Física</option>
+                                                <option value="Meio Ambiente">Meio Ambiente</option>
+                                                <option value="Ciências da Terra">Ciências da Terra</option>
+                                                <option value="Autoajuda e Desenvolvimento Pessoal">Autoajuda e Desenvolvimento Pessoal</option>
                                                 <option value="Empreendedorismo">Empreendedorismo</option>
-                                                <option value="FinancasPessoais">Finanças Pessoais</option>
+                                                <option value="Finanças Pessoais">Finanças Pessoais</option>
                                                 <option value="Economia">Economia</option>
-                                                <option value="Lideranca">Liderança</option>
-                                                <option value="Dicionarios">Dicionários</option>
-                                                <option value="Enciclopedias">Enciclopédias</option>
-                                                <option value="GuiasdeEstudo">Guias de Estudo</option>
-                                                <option value="ManuaisTecnicos">Manuais Técnicos</option>
-                                                <option value="FiccaoHistorica">Ficção Histórica</option>
-                                                <option value="SuspenseInvestigacao">Suspense e Investigação</option>
-                                                <option value="ViagemAventura">Viagem e Aventura</option>
-                                                <option value="Saude">Saúde</option>
-                                                <option value="CulinariaGastronomia">Culinária e Gastronomia</option>
+                                                <option value="Liderança">Liderança</option>
+                                                <option value="Dicionários">Dicionários</option>
+                                                <option value="Enciclopédias">Enciclopédias</option>
+                                                <option value="Guias de Estudo">Guias de Estudo</option>
+                                                <option value="Manuais Técnicos">Manuais Técnicos</option>
+                                                <option value="Ficção Histórica">Ficção Histórica</option>
+                                                <option value="Suspense e Investigação">Suspense e Investigação</option>
+                                                <option value="Viagem e Aventura">Viagem e Aventura</option>
+                                                <option value="Saúde">Saúde</option>
+                                                <option value="Culinária e Gastronomia">Culinária e Gastronomia</option>
                                             </select>
                                         </div>
                                         
@@ -158,25 +159,25 @@
                                             <label>
                                                 <b>*</b>Edição:
                                             </label>
-                                            <input id="edition" type="number"> 
+                                            <input name="edition" id="edition" type="number" required> 
                                         </div>
                                         
                                         <div class="form-item">
                                             <label>
                                                 <b>*</b>Ano de Lançamento:
                                             </label>
-                                            <input id="publishing" type="number"> 
+                                            <input name="publishing" id="publishing" type="number" required> 
                                         </div>
                                         
                                         <div class="form-item">
                                             <label>
-                                                <b>*</b>Descrição:
+                                                <b>*</b>Descrição (máx. 255):
                                             </label>
-                                            <textarea id="description" type="text"> </textarea>
+                                            <textarea name="description" id="description" type="text" rows="4" cols="25" maxlength="255" required> </textarea>
                                         </div>
                                         
                                         <div class="form-item">
-                                            <button type="submit" class="submit"><span>Adicionar</span></button>
+                                            <button type="submit" class="submit" formaction=""><span>Adicionar</span></button>
                                         </div>
                                     </form>
                                 </div>
@@ -201,6 +202,7 @@
                                         <th>Lançamento</th>
                                         <th>Descrição</th>
                                         <th>Quantidade disponível</th>
+                                        <th>Opções</th>
                                       </tr>
                                     </thead>
                                     <tfoot>
@@ -214,6 +216,7 @@
                                           <th>Lançamento</th>
                                           <th>Descrição</th>
                                           <th>Quantidade disponível</th>
+                                          <th>Opções</th>
                                         </tr>
                                       </tfoot>
                                     <tbody>
@@ -228,6 +231,10 @@
                                                 <td>{{ book.date }}</td>
                                                 <td>{{ book.description }}</td>
                                                 <td>{{ book.qnt }}</td>
+                                                <td class="options">
+                                                    <button class="edit-button" data-book="{{ book |to_json| escape}}"><i class="bi bi-pencil-fill"></i></button>
+                                                    <button class="clear-button" data-book="{{ book |to_json| escape}}"><i class="bi bi-trash3-fill"></i></button>
+                                                </td>
                                             </tr>
                                         {% endfor %}
                                     </tbody>
@@ -255,7 +262,7 @@
         <script src="/script/scripts.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
         <script src="/script/datatables-simple-demo.js"></script>
-        <script src="/script/method_put.js" crossorigin="anonymous"></script>
+        <script src="/script/put_book.js" crossorigin="anonymous"></script>
 
     </body>
 </html>

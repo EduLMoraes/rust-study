@@ -23,24 +23,24 @@ impl  DataBase {
 
         Ok(email_exists == "".to_string())
     }
-    pub async fn new_author(&self, name: &String) -> Result<i8, DataBaseError>{
+    pub async fn new_author(&self, name: &String) -> Result<(), DataBaseError>{
         let mut conn = self.pool.get_conn()?;
 
         let stmt = conn.prep("INSERT INTO author (name)VALUES (?)")?;
         conn.exec::<String, Statement, _>(stmt, (name,))?;
 
-        Ok(0)
+        Ok(())
     }
-    pub async fn new_publisher(&self, name: &String) -> Result<i8, DataBaseError>{
+    pub async fn new_publisher(&self, name: &String) -> Result<(), DataBaseError>{
         let mut conn = self.pool.get_conn()?;
 
         let stmt = conn.prep("INSERT INTO publishing_company (name) VALUES (?)")?;
         conn.exec::<String, Statement, _>(stmt, (name,))?;
 
-        Ok(0)
+        Ok(())
     }
     
-    pub async fn new_book(&self, (title, cat, ed, pub_date, desc, author, pub_company):(String, String, String, String, String, String, String)) -> Result<i8, DataBaseError>{
+    pub async fn new_book(&self, (title, cat, ed, pub_date, desc, author, pub_company):(String, String, String, String, String, String, String)) -> Result<(), DataBaseError>{
         let mut conn = self.pool.get_conn()?;
 
         let mut _trash = String::new();
@@ -102,9 +102,9 @@ impl  DataBase {
             conn.exec::<(i32, i32, String, String, String, String, String, i32), Statement, _>(stmt, (id_company, id_author, title, cat, ed, pub_date, desc, 1))?;
         }
 
-        Ok(0)
+        Ok(())
     }
-    pub async fn new_user(&self, (name, surname, email, password):(String, String, String, String)) -> Result<i8, DataBaseError>{
+    pub async fn new_user(&self, (name, surname, email, password):(String, String, String, String), permission: Option<String>) -> Result<(), DataBaseError>{
         let mut conn = self.pool.get_conn()?;
 
         let mut is_valid_email = false;
@@ -121,11 +121,34 @@ impl  DataBase {
         }else if !self.has_user(&email)?{
             return Err(DataBaseError::EmailInvalid("Error: Email already exists".into()))
         }else{
-            let stmt = conn.prep("INSERT INTO 
+            let mut stmt: Statement = conn.prep("INSERT INTO 
                 users (name, surname, password, email, id_permission)
                 VALUES (?, ?, ?, ?, 3)")?;
-            conn.exec::<(String, String, String, String, i32), Statement, _>(stmt, (name, surname, password, email))?;
-            Ok(0)
+
+            match permission{
+                Some(perm) => {
+
+                    stmt = conn.prep("INSERT INTO 
+                        users (name, surname, password, email, id_permission)
+                        VALUES (?, ?, ?, ?, ?)")?;
+                    
+                    let mut level = 3;
+
+                    if perm == "admin".to_string(){
+                        level = 1;
+                    } else if perm == "librarian".to_string(){
+                        level = 2;
+                    }
+
+                    conn.exec::<(String, String, String, String, i32), Statement, _>(stmt, (name, surname, password, email, level))?;
+                    Ok(())
+            },
+                None => {
+                    conn.exec::<(String, String, String, String, i32), Statement, _>(stmt, (name, surname, password, email))?;
+                    Ok(())
+                },
+            }
+
         }
     }  
     pub async fn search_by(&self, table: &String, (column, value): (Option<&String>, Option<&String>)) -> Result<Vec<Row>, DataBaseError>{
@@ -210,6 +233,60 @@ impl  DataBase {
         if column == "qnt_specimens".to_string(){
             let value: i32 = value.trim().parse().unwrap();
             conn.exec::<(i32, String, String), Statement, _>(stmt, (value, id))?;
+        } 
+        else if column == "id_author".to_string(){
+
+            let mut author = self.search_by(&"author".to_string(), (Some(&"name".to_string()), Some(&value))).await?;
+
+            if author.is_empty(){
+                self.new_author(&value).await?;
+                author = self.search_by(&"author".to_string(), (Some(&"name".to_string()), Some(&value))).await?;
+            }
+
+            let mut id_author: i32 = 0;
+            let mut _trash: String;
+
+            for data in author{
+                (id_author, _trash) = mysql::from_row(data);
+            }
+
+            conn.exec::<(i32, String, String), Statement, _>(stmt, (id_author, id))?;
+        }
+        else if column == "id_publishing_company".to_string(){
+
+            let mut publishing_company = self.search_by(&"publishing_company".to_string(), (Some(&"name".to_string()), Some(&value))).await?;
+
+            if publishing_company.is_empty(){
+                self.new_publisher(&value).await?;
+                publishing_company = self.search_by(&"publishing_company".to_string(), (Some(&"name".to_string()), Some(&value))).await?;
+            }
+
+            let mut id_publishing_company: i32 = 0;
+            let mut _trash: String;
+
+            for data in publishing_company{
+                (id_publishing_company, _trash) = mysql::from_row(data);
+            }
+
+            conn.exec::<(i32, String, String), Statement, _>(stmt, (id_publishing_company, id))?;
+        }
+        else if column == "id_permission".to_string(){
+
+            let mut permissions = self.search_by(&"permissions".to_string(), (Some(&"level".to_string()), Some(&value))).await?;
+
+            if permissions.is_empty(){
+                self.new_publisher(&value).await?;
+                permissions = self.search_by(&"permissions".to_string(), (Some(&"level".to_string()), Some(&value))).await?;
+            }
+
+            let mut id_permissions: i32 = 0;
+            let mut _trash: String;
+
+            for data in permissions{
+                (id_permissions, _trash) = mysql::from_row(data);
+            }
+
+            conn.exec::<(i32, String, String), Statement, _>(stmt, (id_permissions, id))?;
         }
         else{
             conn.exec::<(i32, String, String), Statement, _>(stmt, (value, id))?;

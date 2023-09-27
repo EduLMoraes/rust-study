@@ -6,7 +6,7 @@ use db::*;
 mod structs;
 use structs::User;
 
-use std::{error::Error, i8};
+use std::error::Error;
 
 
 pub async fn login(email: String, password: String) -> Result<User, Box<dyn Error>>{
@@ -37,12 +37,11 @@ pub async fn login(email: String, password: String) -> Result<User, Box<dyn Erro
     Err("Password incorrect.".into())
 }
 
-#[allow(dead_code)]
-pub async fn new_user((name, surname, email, password, confirm_password): (String, String, String, String, String)) -> Result<String, Box<dyn std::error::Error>> {
+pub async fn new_user((name, surname, email, password, confirm_password): (String, String, String, String, String), permission: Option<String>) -> Result<String, Box<dyn std::error::Error>> {
     let db = DataBase::new();
 
     if password == confirm_password {
-        let response: Result<i8, DataBaseError> = db.new_user((name, surname, email, password)).await;
+        let response: Result<(), DataBaseError> = db.new_user((name, surname, email, password), permission).await;
 
         match response {
             Ok(_) => Ok("User created successfully".into()),

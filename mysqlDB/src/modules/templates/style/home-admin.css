@@ -98,7 +98,6 @@ main{
 .mcr-books{
     border-radius: 10px;
     background-color: #fff;
-    max-width: 450px;
     margin: 20px;
     justify-content: space-between;
 }
@@ -125,12 +124,11 @@ form {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    max-width: 500px; 
     margin: 0 auto; 
 }
 
 .form-item {
-    flex-basis: calc(50% - 10px); 
+    flex-basis: calc(25% - 10px); 
     margin-bottom: 20px;
 }
 
@@ -140,8 +138,9 @@ label {
 b{
     color: red;
 }
-#edition, #pub_company, #publishing, #description, #title, #category{
+#edition, #pub_company, #publishing, #description, #title, #category, #author{
    font-family: "Helvetica Neue", comic-sans, arial, helvetica, sans-serif;
+   height: 40px;
 }
 #edition{
     width: 50px;
@@ -162,8 +161,9 @@ b{
 }
 #category{
     width: 200px;
-    height: 40px;
-    margin-right: calc(100px)
+}
+#author{
+    max-width: 250px;
 }
 .submit {
     border-radius: 4px;
