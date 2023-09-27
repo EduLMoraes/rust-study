@@ -1,4 +1,3 @@
-Cargo.lock
 target/
 .vscode
 src/db1/
