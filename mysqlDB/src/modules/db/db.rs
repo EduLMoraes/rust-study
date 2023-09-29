@@ -8,7 +8,7 @@ pub struct DataBase{
 #[allow(dead_code)]
 impl  DataBase {
     pub fn new() -> DataBase {
-        DataBase {pool: Pool::new("mysql://root:2023@mysql:3306/study").unwrap() }
+        DataBase {pool: Pool::new("mysql://automato:0178@app-db:3306/study").unwrap() }
     }
 
     pub fn has_user(&self, email: &String) -> Result<bool, DataBaseError>{
