@@ -11,8 +11,6 @@ services:
       MYSQL_USER: automato
       MYSQL_PASSWORD: 0178
     container_name: DataBase-MySQL
-    ports:
-     - 3306:3306
 
   app-rust:
     build:
