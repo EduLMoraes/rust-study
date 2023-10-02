@@ -309,12 +309,32 @@ fn user_exit(mut cookies: Cookies) -> Result<Redirect, Redirect>{
     Ok(Redirect::to("/"))
 }
 
+#[get("/terms")]
+fn terms() -> Html<String>{
+    let context = Context::new();
+
+    let tera = Tera::new("./src/modules/templates/*.tera").expect("Erro ao carregar templates");
+    let rendered = tera.render("terms.tera", &context).expect("Erro ao renderizar template");
+
+    Html(rendered)
+}
+
+#[get("/policy")]
+fn policy() -> Html<String>{
+    let context = Context::new();
+
+    let tera = Tera::new("./src/modules/templates/*.tera").expect("Erro ao carregar templates");
+    let rendered = tera.render("terms.tera", &context).expect("Erro ao renderizar template");
+
+    Html(rendered)
+}
+
 pub fn routes()-> Vec<Route>{
     routes![
             index, register, login, redirect_user,
             admin, librarian, user,
             user_exit, get_librarians_admin, get_books_admin,
             add_book, edit_book, delete_book, add_user, edit_librarian,
-            delete_librarian
+            delete_librarian, terms, policy
         ]
 }

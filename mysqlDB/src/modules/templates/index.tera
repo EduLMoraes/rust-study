@@ -6,6 +6,7 @@
     <title>Login - Biblioteca Moraes</title>
     <link rel="stylesheet" href="/style/standard.css">
     <link rel="stylesheet" href="/style/index.css">
+    <link rel="stylesheet" href="/style/styles.css">
 </head>
 <body>
     <div class="container">
@@ -30,6 +31,19 @@
         <p>Esqueceu a senha? <a href="http://">Redefinir Senha</a></p>
         <p>Não tem uma conta? <a href="/register">Cadastre-se</a></p>
     </div>
+    <footer class="py-4 bg-light mt-auto">
+        <div class="container-fluid px-4">
+            <div class="d-flex align-items-center justify-content-between small">
+                <div class="text-muted">Copyright &copy; Biblioteca Moraes 2023</div>
+                <div class="text-muted">Desenvolvido por Eduardo L. Moraes</div>
+                <div>
+                    <a href="/policy">Pilítica de Privacidade</a>
+                    &middot;
+                    <a href="/terms">Termos &amp; Condições</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 <script>
     function type_change(){

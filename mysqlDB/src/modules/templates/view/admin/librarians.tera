@@ -174,10 +174,11 @@
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
                             <div class="text-muted">Copyright &copy; Biblioteca Moraes 2023</div>
+                            <div class="text-muted">Desenvolvido por Eduardo L. Moraes</div>
                             <div>
-                                <a href="#">Privacy Policy</a>
+                                <a href="/policy">Pilítica de Privacidade</a>
                                 &middot;
-                                <a href="#">Terms &amp; Conditions</a>
+                                <a href="/terms">Termos &amp; Condições</a>
                             </div>
                         </div>
                     </div>

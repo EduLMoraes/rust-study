@@ -48,7 +48,14 @@
                 </label>
                 <input name="confirm_password" id="confirm_password" type="password" class="password" required> 
             </div>
-
+            <p>
+                <input type="checkbox" id="accordion" required/>
+                Eu li e concordo com a <a href="/policy">política de privacidade</a>
+            </p>
+            <p>
+                <input type="checkbox" id="accordion" required/>
+                Eu li e concordo com os <a href="/terms">termos e condições</a>
+            </p>
             <div class="form-item">
                 <button type="submit" class="submit"><span>Adicionar</span></button>
             </div>
@@ -57,9 +64,24 @@
             <input type="checkbox" id="view_password" onclick="type_change()"/>
             Visualizar senha
         </p>
-        <p>Eu li e concordo com a <a href="http://">política de privacidade</a></p>
-        <p>Já possuí uma conta? <a href="/">Login</a></p>
+       
+        <p>
+            Já possuí uma conta? <a href="/">Login</a>
+        </p>
     </div>
+    <footer class="py-4 bg-light mt-auto">
+        <div class="container-fluid px-4">
+            <div class="d-flex align-items-center justify-content-between small">
+                <div class="text-muted">Copyright &copy; Biblioteca Moraes 2023</div>
+                <div class="text-muted">Desenvolvido por Eduardo L. Moraes</div>
+                <div>
+                    <a href="/policy">Pilítica de Privacidade</a>
+                    &middot;
+                    <a href="/terms">Termos &amp; Condições</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 <script>
     function type_change(){
