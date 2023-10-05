@@ -224,8 +224,6 @@ fn add_user(form: Json<UserJS>) -> status::Custom<Result<String, String>>{
     
     let register = rt.block_on(login::new_user((form.name.clone(), form.surname.clone(), form.email.clone(), form.password.clone(), form.confirm_password.clone()), Some(form.permission.clone())));
 
-    println!("{:?}", form);
-
     match register{
         Ok(_) => {
             let success_response = format!("Usuário adicionado com sucesso!");
@@ -329,12 +327,22 @@ fn policy() -> Html<String>{
     Html(rendered)
 }
 
+#[get("/password")]
+fn password() -> Html<String>{
+    let context = Context::new();
+
+    let tera = Tera::new("./src/modules/templates/*.tera").expect("Erro ao carregar templates");
+    let rendered = tera.render("password.tera", &context).expect("Erro ao renderizar template");
+
+    Html(rendered)
+}
+
 pub fn routes()-> Vec<Route>{
     routes![
             index, register, login, redirect_user,
             admin, librarian, user,
             user_exit, get_librarians_admin, get_books_admin,
             add_book, edit_book, delete_book, add_user, edit_librarian,
-            delete_librarian, terms, policy
+            delete_librarian, terms, policy, password
         ]
 }

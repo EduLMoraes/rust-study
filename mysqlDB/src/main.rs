@@ -4,8 +4,11 @@
 use rocket::error::LaunchError;
 use rocket_contrib::serve::StaticFiles;
 use rocket::{Config, config::Environment};
+
 #[path = "./modules/controller/router.rs"]
 mod router;
+
+
 
 fn rocket() -> LaunchError{
     let config = Config::build(Environment::Development)
