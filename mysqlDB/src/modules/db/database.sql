@@ -48,4 +48,4 @@ CREATE TABLE `users` (
   `email` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=113 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-INSERT INTO `users` VALUES (7,1,0,'Eduardo','Moraes','0129','17eduardo05@gmail.com'),(107,2,0,'Priscila','Martins','123','priscila@hotmail.com'),(110,3,0,'Bryan','Moraes','bryan123','bryan@gmail.com'),(111,3,0,'Priscila','Bonilha','b09','bonilha@gmail.com'),(112,3,0,'Eduardo','Moraes','123','lmoraeseduardo@gmail.com');
+INSERT INTO `users` VALUES (7,1,0,'adm','nistrador','admin','admin@admin.com'),(107,2,0,'bib','liotecario','123','bib@liotecario.com'),(110,3,0,'user','comum','user123','user@user.com');
