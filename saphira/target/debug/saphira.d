@@ -1,0 +1,1 @@
+/home/eduardo/Documentos/TADS/Testes/rust/saphira/target/debug/saphira: /home/eduardo/Documentos/TADS/Testes/rust/saphira/src/main.rs /home/eduardo/Documentos/TADS/Testes/rust/saphira/src/models/equipment.rs
