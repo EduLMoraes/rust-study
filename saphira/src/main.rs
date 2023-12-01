@@ -5,5 +5,5 @@ mod equipment;
 
 fn main() {
     let a: Equipment = EquipmentWithLesson::new(3);
-    (a.get_value(120));
+    println!("{}", a.get_value(120));
 }
