@@ -1,0 +1,11 @@
+/home/eduardo/Documentos/TADS/Testes/rust/saphira/target/debug/deps/enumset-7ab944a278900a4d.rmeta: /home/eduardo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/enumset-1.1.3/src/lib.rs /home/eduardo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/enumset-1.1.3/src/macros.rs /home/eduardo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/enumset-1.1.3/src/repr/mod.rs /home/eduardo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/enumset-1.1.3/src/repr/array.rs /home/eduardo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/enumset-1.1.3/src/repr/primitive.rs /home/eduardo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/enumset-1.1.3/src/set.rs /home/eduardo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/enumset-1.1.3/src/traits.rs
+
+/home/eduardo/Documentos/TADS/Testes/rust/saphira/target/debug/deps/enumset-7ab944a278900a4d.d: /home/eduardo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/enumset-1.1.3/src/lib.rs /home/eduardo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/enumset-1.1.3/src/macros.rs /home/eduardo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/enumset-1.1.3/src/repr/mod.rs /home/eduardo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/enumset-1.1.3/src/repr/array.rs /home/eduardo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/enumset-1.1.3/src/repr/primitive.rs /home/eduardo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/enumset-1.1.3/src/set.rs /home/eduardo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/enumset-1.1.3/src/traits.rs
+
+/home/eduardo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/enumset-1.1.3/src/lib.rs:
+/home/eduardo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/enumset-1.1.3/src/macros.rs:
+/home/eduardo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/enumset-1.1.3/src/repr/mod.rs:
+/home/eduardo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/enumset-1.1.3/src/repr/array.rs:
+/home/eduardo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/enumset-1.1.3/src/repr/primitive.rs:
+/home/eduardo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/enumset-1.1.3/src/set.rs:
+/home/eduardo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/enumset-1.1.3/src/traits.rs:
