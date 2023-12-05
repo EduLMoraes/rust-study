@@ -4,7 +4,7 @@ use serde::Serialize;
 use std::io::Write;
 use std::fs::File;
 use lazy_static::lazy_static;
-use std::sync::{Mutex};
+use std::sync::Mutex;
 
 #[derive(Serialize, Clone, Debug)]
 pub struct Rentals {

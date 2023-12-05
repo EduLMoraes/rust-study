@@ -50,7 +50,7 @@ pub fn app(cx: Scope) -> Element {
         }, "Listar Aluguéis"},
         
         if **list{
-            list_table(&cx)    
+            list_table(&cx, rentals)    
         }
     })
 }

@@ -1,9 +1,7 @@
 use dioxus::prelude::*;
-use super::rentals::get_rentals_instance;
+use super::rentals::Rentals;
 
-pub fn list_table(cx: Scope) -> Element{
-    let rentals = use_state(cx, || get_rentals_instance());
-
+pub fn list_table<'a>(cx: Scope<'a>, rentals: &'a UseState<Rentals>) -> Element<'a>{
     cx.render(rsx!{
         table {
             tr{
