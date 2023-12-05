@@ -1,4 +1,5 @@
 use serde::Serialize;
+use rand::{self, Rng};
 
 #[derive(Serialize, Debug)]
 pub struct Equipment{
@@ -60,7 +61,7 @@ impl EquipmentWithoutLesson for Equipment{
         }
     }
     fn get_type(&self) -> i32{
-        self.id
+        rand::thread_rng().gen_range(0..9999)
     }
     fn to_string(&self) -> String{
         format!("{} {} {:?}", self.id, self.description, self.get_equipment_and_values())

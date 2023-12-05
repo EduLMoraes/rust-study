@@ -1,8 +1,5 @@
-#[path = "./view/config.rs"]
-mod config;
-
-#[path = "./view/homepage.rs"]
-mod homepage;
+mod prelude;
+use crate::prelude::*;
 
 fn main() {
     dioxus_desktop::launch_cfg(
