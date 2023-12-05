@@ -2,7 +2,7 @@ use crate::equipment::Equipment;
 use crate::equipment::{EquipmentWithLesson, EquipmentWithoutLesson, EquipmentAndValues};
 use serde::Serialize;
 
-#[derive(Serialize, Debug)]
+#[derive(Serialize, Debug, Clone, Copy)]
 pub struct Rental{
     contract: i64,
     time: i32,
