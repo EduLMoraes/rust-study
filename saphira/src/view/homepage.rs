@@ -16,8 +16,9 @@ pub fn app(cx: Scope) -> Element {
 
     cx.render(rsx! {
         form{
-            onsubmit: move |event| {
-                teste.set(rentals.new_rental(control::get_id(equip.to_string()), time.parse::<i32>().unwrap(), **lesson))
+            onsubmit: move |_| {
+                rentals.new_rental(control::get_id(equip.to_string()), time.parse::<i32>().unwrap(), **lesson);
+                teste.set(rentals.list_all())
             },
             
             input {
@@ -54,7 +55,7 @@ pub fn app(cx: Scope) -> Element {
                 td { format!("ID") }
                 td { format!("Descrição") }
             }
-            td { format!("{}", rentals.list_all()) }
+            td {  }
         }
     })
 }

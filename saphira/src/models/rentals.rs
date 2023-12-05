@@ -1,6 +1,8 @@
 use crate::rental::*;
 use crate::equipment::*;
+use serde::Serialize;
 
+#[derive(Serialize)]
 pub struct Rentals {
     rentals: Vec<Rental>,
 }
@@ -25,7 +27,7 @@ impl Rentals{
         
         let rent = &rental.to_string();
         self.rentals.push(rental);
-        
+
         rent.to_string()
     }
 
@@ -34,6 +36,7 @@ impl Rentals{
 
         for rental in self.rentals.iter(){
             list.push_str(rental.to_string().trim());
+            list.push_str("\n");
         }
 
         list
