@@ -21,16 +21,12 @@ impl Rentals{
             equipment = EquipmentWithoutLesson::new(id);
         }
     
-        let rental = Rental::new(time, equipment);
+        let rental = Rental::new(time, equipment, has_lesson);
         
         let rent = &rental.to_string();
         self.rentals.push(rental);
 
         rent.to_string()
-    }
-
-    pub fn total_price(&self) -> f32{
-        
     }
 
     pub fn list_all(&self) -> String{

@@ -1,7 +1,7 @@
 use dioxus::prelude::*;
 use crate::control;
 use crate::equipment::{EquipmentWithLesson, EquipmentWithoutLesson};
-use crate::rental::Rental;
+use crate::rentals::Rentals;
 
 
 pub fn app(cx: Scope) -> Element {
@@ -12,7 +12,7 @@ pub fn app(cx: Scope) -> Element {
     let lesson = use_state(cx, || false);
 
     let value: i32;
-    let mut rentals: Vec<Rental> = Vec::new();
+    let mut rentals: Rentals = Rentals::new();
 
     cx.render(rsx! {
         label { "Tempo de Alguel" }
@@ -30,7 +30,7 @@ pub fn app(cx: Scope) -> Element {
         }
         br {}
 
-        button { onclick: move |_| rentals.push(control::new_rent(equip.to_string(), **lesson, time.to_string())), "Confirmar Aluguel" }
+        button { onclick: move |_| rentals.new_rental(control::get_id(desc), time.parse::<i32>().unwrap(), lesson), "Confirmar Aluguel" }
         button { onclick: move |_| count -= 1, "Listar Aluguéis" }
 
         table{
