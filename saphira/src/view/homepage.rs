@@ -5,7 +5,7 @@ use crate::rentals::Rentals;
 
 
 pub fn app(cx: Scope) -> Element {
-    let mut count = use_state(cx, || 0);
+    let mut teste = use_state(cx, || "alo".to_string());
 
     let time = use_state(cx, || "".to_string());
     let equip = use_state(cx, || "".to_string());
@@ -15,30 +15,30 @@ pub fn app(cx: Scope) -> Element {
     let mut rentals: Rentals = Rentals::new();
 
     cx.render(rsx! {
-        label { "Tempo de Alguel" }
-        input {value: "{time}", oninput: move |evt| time.set(evt.value.clone())}
-        br {}
+        form{
+            onsubmit: move |event| {
+                // rentals.new_rental(control::get_id(equip.to_string()), time.parse::<i32>().unwrap(), **lesson)
+                teste.set(event.value.clone())
+            },
+            
+            input {name: "time"}
 
-        label { "Equipamento" }
-        input {value: "{equip}", oninput: move |evt| equip.set(evt.value.clone())}
-        br {}
+            input {name: "equip"}
 
-        label { "Incluir Aula" }
-        button { onclick: move |_| 
-            if !**lesson { lesson.set(true) } else { lesson.set(false) }, 
-            if **lesson {"✅"} else {"❌"}
+            //button { onclick: move |_| , "Confirmar Aluguel" }
+            input { r#type: "checkbox", },
+
+            input { r#type: "submit", },
         }
-        br {}
-
-        button { onclick: move |_| rentals.new_rental(control::get_id(equip.to_string()), time.parse::<i32>().unwrap(), **lesson), "Confirmar Aluguel" }
-        button { onclick: move |_| count -= 1, "Listar Aluguéis" }
+        
+        label { "{teste} "}
 
         table{
             tr{
                 td { format!("ID") }
                 td { format!("Descrição") }
             }
-            td { format!("{:?}", rentals.list_all()) }
+            td { format!("{}", rentals.list_all()) }
         }
     })
 }
