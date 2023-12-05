@@ -29,13 +29,17 @@ impl Rentals{
         rent.to_string()
     }
 
+    pub fn total_price(&self) -> f32{
+        
+    }
+
     pub fn list_all(&self) -> String{
         let mut list = String::new();
 
         for rental in self.rentals.iter(){
             list.push_str(rental.to_string().trim());
         }
-        
+
         list
     }
 }

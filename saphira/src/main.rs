@@ -1,6 +1,5 @@
 mod prelude;
-use crate::prelude::{*, control::new_rent};
-
+use prelude::*;
 fn main() {
     // dioxus_desktop::launch_cfg(
     //     homepage::app,
@@ -11,7 +10,5 @@ fn main() {
     rentals.new_rental(1, 120, true);
     rentals.new_rental(1, 120, false);
 
-    println!("{:?}", new_rent("Jetski".to_string(), true, "120".to_string()));
-    println!("{:?}", new_rent("Jetski".to_string(), false, "120".to_string()));
     println!("{} ", rentals.list_all());
 }

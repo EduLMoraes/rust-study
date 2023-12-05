@@ -10,22 +10,14 @@ pub struct Rental{
 }
 
 impl Rental{
-    pub fn new(time: i32, equip: Equipment) -> Self{
+    pub fn new(time: i32, equip: Equipment, has_lesson: bool) -> Self{
         Rental { 
-            contract: EquipmentWithoutLesson::get_type(&equip) as i64, 
+            contract: equip.get_type() as i64, 
             time: time, 
-            price: {
-                let lesson = match equip.equipment_and_values{
-                    EquipmentAndValues::EQUIPMENT(_, _, _, has_lesson) => {
-                        has_lesson
-                    }
-                };
-
-                if lesson{
-                    EquipmentWithLesson::get_value(&equip, time)
-                }else{
-                    EquipmentWithoutLesson::get_value(&equip, time)
-                }
+            price: if has_lesson{
+                EquipmentWithLesson::get_value(&equip, time)
+            }else{
+                EquipmentWithoutLesson::get_value(&equip, time)
             }
         }
     }
