@@ -1,5 +1,5 @@
 use dioxus::prelude::*;
-use dioxus_desktop::launch;
+use dioxus_desktop::{Config, WindowBuilder};
 
 fn app(cx: Scope) -> Element {
     let mut count = use_state(cx, || 0);
@@ -11,5 +11,10 @@ fn app(cx: Scope) -> Element {
 }
 
 fn main() {
-    launch(app);
+    dioxus_desktop::launch_cfg(
+        app,
+        Config::default().with_window(WindowBuilder::new().with_resizable(true).with_inner_size(
+            dioxus_desktop::wry::application::dpi::LogicalSize::new(400.0, 800.0),
+        )),
+    );
 }
