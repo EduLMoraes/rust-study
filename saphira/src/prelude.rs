@@ -1,6 +1,9 @@
 #[path = "./view/homepage.rs"]
 pub mod homepage;
 
+#[path = "./view/table.rs"]
+pub mod table;
+
 #[path = "./view/config.rs"]
 pub mod config;
 

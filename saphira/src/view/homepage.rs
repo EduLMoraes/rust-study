@@ -1,16 +1,15 @@
 use dioxus::prelude::*;
 use crate::control;
-use crate::equipment::{EquipmentWithLesson, EquipmentWithoutLesson};
 use crate::rentals::Rentals;
-
+use crate::table::*;
 
 pub fn app(cx: Scope) -> Element {
-    let mut rentals = Rentals::new();
 
     let time = use_state(cx, || String::new());
     let equip = use_state(cx, || String::new());
     let lesson = use_state(cx, || false);
-    let texto = use_state(cx, || String::new());
+    let list = use_state(cx, || false);
+    let rentals = use_state(cx, || Rentals::new());
 
     cx.render(rsx! {
        
@@ -36,13 +35,22 @@ pub fn app(cx: Scope) -> Element {
         }
 
         button { onclick: move |_| {
-            rentals.new_rental(control::get_id(equip.to_string()), time.trim().parse::<i32>().unwrap(), **lesson);
-            texto.set(rentals.list_all());
-        }, "new rental"},
+            rentals.set(
+                control::add_rental(
+                    control::get_id(equip.to_string()), 
+                    time.parse::<i32>().unwrap(), 
+                    **lesson
+                )
+            );
+
+        }, "Confirmar Aluguel"},
+
+        button { onclick: move |_| {
+            list.set(true);
+        }, "Listar Aluguéis"},
         
-        label {
-            format!("{} {}", texto, equip.to_string())
+        if **list{
+            list_table(&cx)    
         }
-         
     })
 }

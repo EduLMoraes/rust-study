@@ -1,12 +1,12 @@
 use crate::equipment::Equipment;
-use crate::equipment::{EquipmentWithLesson, EquipmentWithoutLesson, EquipmentAndValues};
+use crate::equipment::{EquipmentWithLesson, EquipmentWithoutLesson};
 use serde::Serialize;
 
 #[derive(Serialize, Debug, Clone, Copy)]
 pub struct Rental{
-    contract: i64,
-    time: i32,
-    price: f32
+    pub contract: i64,
+    pub time: i32,
+    pub price: f32
 }
 
 impl Rental{
@@ -22,6 +22,7 @@ impl Rental{
         }
     }
 
+    #[allow(dead_code)]
     pub fn total_price(&self) -> f32 {
         self.price
     }
