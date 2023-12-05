@@ -9,3 +9,9 @@ pub mod control;
 
 #[path = "./models/equipment.rs"]
 pub mod equipment;
+
+#[path = "./models/rental.rs"]
+pub mod rental;
+
+#[path = "./models/rentals.rs"]
+pub mod rentals;

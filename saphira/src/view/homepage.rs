@@ -1,7 +1,7 @@
 use dioxus::prelude::*;
 use crate::control;
 use crate::equipment::{EquipmentWithLesson, EquipmentWithoutLesson};
-use crate::equipment::Equipment;
+use crate::rental::Rental;
 
 
 pub fn app(cx: Scope) -> Element {
@@ -12,7 +12,7 @@ pub fn app(cx: Scope) -> Element {
     let lesson = use_state(cx, || false);
 
     let value: i32;
-    let mut rentals: Vec<Equipment> = vec![control::new_rent(equip.to_string(), **lesson, time.to_string())];
+    let mut rentals: Vec<Rental> = Vec::new();
 
     cx.render(rsx! {
         label { "Tempo de Alguel" }
@@ -38,15 +38,7 @@ pub fn app(cx: Scope) -> Element {
                 td { format!("ID") }
                 td { format!("Descrição") }
             }
-            td { format!("{:?}", rentals) }
-
-            for rent in rentals.iter_mut() {
-                tr{
-                    td { format!("{:?}", rent) }
-                    // td { format!("{}", EquipmentWithoutLesson::get_description(&rentals[0])) }
-    
-                }
-            }
+            td { format!("{:?}", rentals[0]) }
         }
     })
 }
