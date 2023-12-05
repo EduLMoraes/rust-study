@@ -5,7 +5,7 @@ use crate::rentals::Rentals;
 
 
 pub fn app(cx: Scope) -> Element {
-    let mut teste = use_state(cx, || "alo".to_string());
+    let mut teste = use_state(cx, ||String::new());
 
     let time = use_state(cx, || "".to_string());
     let equip = use_state(cx, || "".to_string());
@@ -17,16 +17,32 @@ pub fn app(cx: Scope) -> Element {
     cx.render(rsx! {
         form{
             onsubmit: move |event| {
-                // rentals.new_rental(control::get_id(equip.to_string()), time.parse::<i32>().unwrap(), **lesson)
-                teste.set(event.value.clone())
+                teste.set(rentals.new_rental(control::get_id(equip.to_string()), time.parse::<i32>().unwrap(), **lesson))
             },
             
-            input {name: "time"}
+            input {
+                name: "time",
+                oninput: move |evt| {
+                    time.set(evt.value.clone())
+                }
+            }
 
-            input {name: "equip"}
+            input {
+                name: "equip",
+                oninput: move |evt| {
+                    equip.set(evt.value.clone())
+                }
+            }
 
             //button { onclick: move |_| , "Confirmar Aluguel" }
-            input { r#type: "checkbox", },
+            input { 
+                r#type: "checkbox",
+                onclick: move |_| 
+                if !**lesson { lesson.set(true) }
+                else { lesson.set(false) },
+                if **lesson {"✅"}
+                else {"❌"}
+            }
 
             input { r#type: "submit", },
         }
