@@ -1,5 +1,5 @@
 use crate::equipment::Equipment;
-use crate::equipment::{EquipmentWithLesson, EquipmentWithoutLesson};
+use crate::equipment::{EquipmentWithLesson, EquipmentWithoutLesson, EquipmentAndValues};
 use serde::Serialize;
 
 #[derive(Serialize, Debug)]
@@ -11,7 +11,23 @@ pub struct Rental{
 
 impl Rental{
     pub fn new(time: i32, equip: Equipment) -> Self{
-        Rental { contract: EquipmentWithoutLesson::get_type(&equip) as i64, time: time, price: EquipmentWithLesson::get_value(&equip, time)}
+        Rental { 
+            contract: EquipmentWithoutLesson::get_type(&equip) as i64, 
+            time: time, 
+            price: {
+                let lesson = match equip.equipment_and_values{
+                    EquipmentAndValues::EQUIPMENT(_, _, _, has_lesson) => {
+                        has_lesson
+                    }
+                };
+
+                if lesson{
+                    EquipmentWithLesson::get_value(&equip, time)
+                }else{
+                    EquipmentWithoutLesson::get_value(&equip, time)
+                }
+            }
+        }
     }
 
     pub fn total_price(&self) -> f32 {

@@ -5,7 +5,7 @@ use rand::{self, Rng};
 pub struct Equipment{
     id: i32,
     description: String,
-    equipment_and_values: EquipmentAndValues
+    pub equipment_and_values: EquipmentAndValues
 }pub trait EquipmentWithoutLesson{
     fn new(id: i32) -> Self;
     fn get_value(&self, time: i32) -> f32;
