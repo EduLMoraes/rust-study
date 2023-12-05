@@ -30,7 +30,7 @@ pub fn app(cx: Scope) -> Element {
         }
         br {}
 
-        button { onclick: move |_| rentals.new_rental(control::get_id(desc), time.parse::<i32>().unwrap(), lesson), "Confirmar Aluguel" }
+        button { onclick: move |_| rentals.new_rental(control::get_id(equip.to_string()), time.parse::<i32>().unwrap(), **lesson), "Confirmar Aluguel" }
         button { onclick: move |_| count -= 1, "Listar Aluguéis" }
 
         table{
@@ -38,7 +38,7 @@ pub fn app(cx: Scope) -> Element {
                 td { format!("ID") }
                 td { format!("Descrição") }
             }
-            td { format!("{:?}", rentals[0]) }
+            td { format!("{:?}", rentals.list_all()) }
         }
     })
 }

@@ -10,7 +10,7 @@ impl Rentals{
         Rentals{ rentals: Vec::new() }
     }
 
-    pub fn new_rental(&mut self, id: i32, time: i32, has_lesson: bool) -> String{
+    pub fn new_rental(&mut self, id: i32, time: i32, has_lesson: bool){
 
         let mut equipment: Equipment;
 
@@ -25,8 +25,6 @@ impl Rentals{
         
         let rent = &rental.to_string();
         self.rentals.push(rental);
-
-        rent.to_string()
     }
 
     pub fn list_all(&self) -> String{
