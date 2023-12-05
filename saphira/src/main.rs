@@ -1,9 +1,5 @@
-use equipment::{Equipment, EquipmentWithLesson, EquipmentWithoutLesson};
 use dioxus::prelude::*;
-use dioxus::html::*;
-
-#[path="./models/equipment.rs"]
-mod equipment;
+use dioxus_desktop::launch;
 
 fn app(cx: Scope) -> Element {
     let mut count = use_state(cx, || 0);
@@ -15,6 +11,5 @@ fn app(cx: Scope) -> Element {
 }
 
 fn main() {
-    dioxus_desktop::launch(app);
-    
+    launch(app);
 }
