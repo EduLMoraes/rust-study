@@ -5,6 +5,7 @@ mod utils;
 
 use cfg_if::cfg_if;
 use wasm_bindgen::prelude::*;
+use js_sys::Math::random;
 
 cfg_if! {
     // When the `wee_alloc` feature is enabled, use `wee_alloc` as the global
@@ -20,35 +21,50 @@ cfg_if! {
 extern {
     fn alert(s: &str);
     fn prompt(solic_1: &str, name: &str) -> String;
+
 }
 
-#[wasm_bindgen]
-#[repr(u8)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum Cell{
-    Dead = 0,
-    Alife = 1,
-}
+use fixedbitset::FixedBitSet;
 
 #[wasm_bindgen]
 pub struct Universe{
     width: u32,
     height: u32,
-    cells: Vec<Cell>,
+    cells: FixedBitSet,
 }
 
 #[wasm_bindgen]
 impl Universe{
     pub fn new() -> Universe{
+        utils::set_panic_hook();
+
         let width = 64;
         let height = 64;
 
-        let cells = (0..width * height)
+        let size = (width * height) as usize;
+        let mut cells: FixedBitSet = FixedBitSet::with_capacity(size);
+
+        for i in 0..size{
+            cells.set(i, i % 2 == 0 || i % 7 == 0);
+        }
+        
+        Universe {
+            width,
+            height,
+            cells,
+        }
+    }
+
+    pub fn space_ship() -> Universe{
+        let width = 64;
+        let height = 64;
+
+        let cells = (0.. width * height)
             .map(|i| {
-                if i % 2 == 0 || i % 7 == 0 {
-                    Cell::Alife
-                } else {
-                    Cell::Dead
+                if i == 3 || i == 65 || i == 67 || i == 130 || i == 131{
+                    1
+                }else{
+                    0
                 }
             })
             .collect();
@@ -56,7 +72,7 @@ impl Universe{
         Universe {
             width,
             height,
-            cells,
+            cells
         }
     }
 
@@ -68,8 +84,8 @@ impl Universe{
         self.height
     }
 
-    pub fn cells(&self) -> *const Cell{
-        self.cells.as_ptr()
+    pub fn cells(&self) -> *const u32{
+        self.cells.as_slice().as_ptr()
     }
 
     pub fn render(&self) -> String{
@@ -83,30 +99,34 @@ impl Universe{
             for col in 0..self.width{
                 let idx = self.get_index(row, col);
                 let cell = self.cells[idx];
-                let live_neighbor = self.live_neighbor_count(row, col);
+                let live_neighbors = self.live_neighbor_count(row, col);
 
-                let next_cell = match (cell, live_neighbor){
-                    // Se uma célula tem menos que dois vizinhos vivos, a célula morre por subpopulação.
-                    (Cell::Alife, x) if x < 2 => Cell::Dead,
-
-                    // Se a célula tiver 2 ou 3 vizinhos vivos, a célula vive.
-                    (Cell::Alife, 2) | (Cell::Alife, 3) => Cell::Alife,
-
-                    // Se a célula tiver mais que 3 vizinhos, a célula morre por superpopulação.
-                    (Cell::Alife, x) if x > 3 => Cell::Dead,
-
-                    // Toda célula morta com exatos 3 vizinhos vivos, se torna viva, viva a reprodução!!!
-                    (Cell::Dead, 3) => Cell::Alife,
-
-                    // Todas as outras células recebem o mesmo estado.
-                    (otherwise, _) => otherwise,
-                };
-                next[idx] = next_cell;
+                next.set(idx, match (cell, live_neighbors) {
+                    (true, x) if x < 2 => false,
+                    (true, 2) | (true, 3) => true,
+                    (true, x) if x > 3 => false,
+                    (false, 3) => true,
+                    (otherwise, _) => otherwise
+                });
             }
         }
 
         self.cells = next;
     }
+
+    pub fn set_height(&mut self, height: u32){
+        self.height = height;
+        for i in 0..(self.width * height) as usize {
+            self.cells.set(i, i % 2 == 0 || i % 7 == 0)
+        }
+    }
+
+    pub fn set_width(&mut self, width: u32) {
+        self.width = width;
+        for i in 0..(self.height * width) as usize {
+            self.cells.set(i, i % 2 == 0 || i % 7 == 0)
+        }
+    } 
 
     fn get_index(&self, row: u32, column: u32) -> usize{
         (row * self.width + column) as usize
@@ -132,13 +152,32 @@ impl Universe{
     }
 }
 
+impl Universe{
+    pub fn get_cells(&self) -> &FixedBitSet{
+        &self.cells
+    }
+
+    pub fn set_cells(&mut self, cells: &[(u32, u32)]) {
+        for (row, col) in cells.iter().cloned(){
+            let idx = self.get_index(row, col);
+            self.cells.set(idx, true);
+        }
+    }
+}
+
 use std::fmt;
 
 impl fmt::Display for Universe{
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        for line in self.cells.as_slice().chunks(self.width as usize){
-            for &cell in line{
-                let symbol = if cell == Cell::Dead {'◻'} else {'◼'};
+        for row in 0..self.height{
+            for col in 0..self.width{
+                let idx = self.get_index(row, col);
+                let cell = self.cells[idx];
+
+                let symbol = match cell {
+                    false => '▫',
+                    true => '▪'
+                };
                 write!(f, "{}", symbol)?;
             }
             write!(f, "\n")?;
